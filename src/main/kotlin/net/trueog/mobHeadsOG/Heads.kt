@@ -1453,7 +1453,7 @@ object Heads {
         val entityType = EntityType.valueOf(split[0])
 
         if (entityType != EntityType.TROPICAL_FISH && entityType != EntityType.VILLAGER && entityType != EntityType.ZOMBIE_VILLAGER) {
-            return "${split.drop(1).joinToString(" ").capitalizeWords()} ${split[0].capitalizeWords()}"
+            return "${split.drop(1).joinToString(" ").capitalizeWords()}${if (split.drop(1).isNotEmpty()) " " else ""}${split[0].capitalizeWords()}"
         }
 
         if (entityType == EntityType.VILLAGER || entityType == EntityType.ZOMBIE_VILLAGER) {
