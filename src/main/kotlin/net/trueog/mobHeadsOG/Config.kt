@@ -51,8 +51,8 @@ class Config {
                 return false
             }
 
-            if (dropChance > 1) {
-                MobHeadsOG.plugin.logger.severe("The drop chance of $key is not a valid chance (the drop chance cannot be higher than 1)")
+            if (dropChance > 1 || dropChance < 0) {
+                MobHeadsOG.plugin.logger.severe("The drop chance of $key is not a valid chance ( 0 <= drop chance <= 1 )")
                 return false
             }
 
