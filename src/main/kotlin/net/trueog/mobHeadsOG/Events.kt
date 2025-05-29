@@ -158,6 +158,10 @@ class Events : Listener {
 
     @EventHandler
     fun onPlayerInteract(event: PlayerInteractEvent) {
+        if (event.isBlockInHand()) {
+            return
+        }
+
         val metadata = event.clickedBlock?.getMetadata("customMobHead") ?: listOf()
         if (metadata.isEmpty()) {
             return
