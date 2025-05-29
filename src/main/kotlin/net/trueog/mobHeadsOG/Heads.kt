@@ -1339,8 +1339,8 @@ object Heads {
         }
     }
 
-    fun String.capitalizeWords(): String {
-        return this.lowercase().split("_", " ").joinToString(" ") { it.replaceFirstChar { char -> char.titlecase() } }
+    fun String.titleCase(): String {
+        return this.lowercase().split("_", " ").joinToString(" ") { it.replaceFirstChar { char -> char.uppercase() } }
     }
 
     fun getNameForEntity(entity: Entity): String? {
@@ -1444,7 +1444,7 @@ object Heads {
             return null
         }
 
-        return name.capitalizeWords()
+        return name.titleCase()
     }
 
     fun getNameForEntity(stringRepresentation: String): String? {
@@ -1453,20 +1453,20 @@ object Heads {
         val entityType = EntityType.valueOf(split[0])
 
         if (entityType != EntityType.TROPICAL_FISH && entityType != EntityType.VILLAGER && entityType != EntityType.ZOMBIE_VILLAGER) {
-            return "${split.drop(1).joinToString(" ").capitalizeWords()}${if (split.drop(1).isNotEmpty()) " " else ""}${split[0].capitalizeWords()}"
+            return "${split.drop(1).joinToString(" ").titleCase()}${if (split.drop(1).isNotEmpty()) " " else ""}${split[0].titleCase()}"
         }
 
         if (entityType == EntityType.VILLAGER || entityType == EntityType.ZOMBIE_VILLAGER) {
             return "${
-                split.drop(1).joinToString(" ").replace("NONE", "UNEMPLOYED").capitalizeWords()
-            } ${split[0].capitalizeWords()}"
+                split.drop(1).joinToString(" ").replace("NONE", "UNEMPLOYED").titleCase()
+            } ${split[0].titleCase()}"
         }
 
         val bodyColor = DyeColor.valueOf(split[1])
         val patternColor = DyeColor.valueOf(split[2])
         val pattern = TropicalFish.Pattern.valueOf(split[3])
         val specialFishType = Fish.getSpecialFishType(bodyColor, patternColor, pattern)
-        return specialFishType?.name?.capitalizeWords()
-            ?: "${split.drop(1).joinToString(" ").capitalizeWords()} ${split[0].capitalizeWords()}"
+        return specialFishType?.name?.titleCase()
+            ?: "${split.drop(1).joinToString(" ").titleCase()} ${split[0].titleCase()}"
     }
 }
