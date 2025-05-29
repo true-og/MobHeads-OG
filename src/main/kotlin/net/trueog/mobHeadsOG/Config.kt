@@ -29,8 +29,7 @@ class Config {
             if (key.lowercase() == "charged_creeper") {
                 val dropChance = try {
                     dropChancesSection.get(key) as Double
-                }
-                catch (_: ClassCastException) {
+                } catch (_: ClassCastException) {
                     MobHeadsOG.plugin.logger.severe("Failed to parse the drop chance of $key as a valid double")
                     return false
                 }
@@ -40,16 +39,14 @@ class Config {
 
             val entityType = try {
                 EntityType.valueOf(key.uppercase())
-            }
-            catch (_: IllegalArgumentException) {
+            } catch (_: IllegalArgumentException) {
                 MobHeadsOG.plugin.logger.severe("Failed to parse $key as a valid EntityType")
                 return false
             }
 
             val dropChance = try {
                 dropChancesSection.get(key) as Double
-            }
-            catch (_: ClassCastException) {
+            } catch (_: ClassCastException) {
                 MobHeadsOG.plugin.logger.severe("Failed to parse the drop chance of $key as a valid double")
                 return false
             }

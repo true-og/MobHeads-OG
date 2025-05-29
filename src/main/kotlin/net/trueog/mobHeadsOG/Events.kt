@@ -7,10 +7,7 @@ import org.bukkit.Material
 import org.bukkit.NamespacedKey
 import org.bukkit.entity.Creeper
 import org.bukkit.entity.EntityType
-import org.bukkit.entity.LivingEntity
-import org.bukkit.entity.Mob
 import org.bukkit.entity.Player
-import org.bukkit.entity.Villager
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.block.BlockBreakEvent
@@ -22,7 +19,7 @@ import org.bukkit.inventory.meta.SkullMeta
 import org.bukkit.metadata.FixedMetadataValue
 import org.bukkit.persistence.PersistentDataType
 import org.bukkit.profile.PlayerTextures
-import java.util.UUID
+import java.util.*
 
 class Events : Listener {
     val customMobHeadKey = NamespacedKey(MobHeadsOG.plugin, "customMobHead")
@@ -36,8 +33,7 @@ class Events : Listener {
 
         val dropChance = if (event.entityType == EntityType.CREEPER && (event.entity as Creeper).isPowered) {
             MobHeadsOG.config.chargedCreeperChance
-        }
-        else {
+        } else {
             MobHeadsOG.config.dropChances[event.entityType]
         }
 
@@ -55,11 +51,13 @@ class Events : Listener {
                 event.drops.add(skull)
                 return
             }
+
             EntityType.ZOMBIE -> {
                 val head = ItemStack(Material.ZOMBIE_HEAD, 1)
                 event.drops.add(head)
                 return
             }
+
             EntityType.CREEPER -> {
                 if (!(event.entity as Creeper).isPowered) {
                     val head = ItemStack(Material.CREEPER_HEAD, 1)
@@ -67,6 +65,7 @@ class Events : Listener {
                     return
                 }
             }
+
             else -> {}
         }
 
@@ -86,9 +85,12 @@ class Events : Listener {
             return
         }
 
-        headMeta.persistentDataContainer.set(customMobHeadKey,PersistentDataType.STRING, stringRepresentation)
-        headMeta.displayName(Component.text("${Heads.getNameForEntity(event.entity)} Head").decoration(
-            TextDecoration.ITALIC, false))
+        headMeta.persistentDataContainer.set(customMobHeadKey, PersistentDataType.STRING, stringRepresentation)
+        headMeta.displayName(
+            Component.text("${Heads.getNameForEntity(event.entity)} Head").decoration(
+                TextDecoration.ITALIC, false
+            )
+        )
         textures.setSkin(skinUrl, PlayerTextures.SkinModel.CLASSIC)
         profile.setTextures(textures)
 
@@ -99,10 +101,13 @@ class Events : Listener {
 
     @EventHandler
     fun onBlockPlace(event: BlockPlaceEvent) {
-        val customMobHeadData = event.itemInHand.itemMeta.persistentDataContainer.get(customMobHeadKey, PersistentDataType.STRING)
+        val customMobHeadData =
+            event.itemInHand.itemMeta.persistentDataContainer.get(customMobHeadKey, PersistentDataType.STRING)
         if (customMobHeadData == null) {
             return
         }
+
+        customMobHeadData == "CREEPER"
 
         event.block.setMetadata("customMobHead", FixedMetadataValue(MobHeadsOG.plugin, customMobHeadData))
     }
@@ -127,7 +132,6 @@ class Events : Listener {
         val head = ItemStack(Material.PLAYER_HEAD, 1)
         val headMeta = head.itemMeta as SkullMeta
 
-
         val profile = createProfile(nullUuid)
         val textures = profile.textures
         val skinUrl = Heads.getHeadUrlWithStringRepresentation(customMobHeadData)
@@ -135,10 +139,12 @@ class Events : Listener {
             return
         }
 
-
-        headMeta.persistentDataContainer.set(customMobHeadKey,PersistentDataType.STRING,customMobHeadData)
-        headMeta.displayName(Component.text("${Heads.getNameForEntity(customMobHeadData)} Head").decoration(
-            TextDecoration.ITALIC, false))
+        headMeta.persistentDataContainer.set(customMobHeadKey, PersistentDataType.STRING, customMobHeadData)
+        headMeta.displayName(
+            Component.text("${Heads.getNameForEntity(customMobHeadData)} Head").decoration(
+                TextDecoration.ITALIC, false
+            )
+        )
         textures.setSkin(skinUrl, PlayerTextures.SkinModel.CLASSIC)
         profile.setTextures(textures)
 

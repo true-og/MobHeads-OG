@@ -140,7 +140,7 @@ object Heads {
         Parrot.Variant.CYAN to URL("http://textures.minecraft.net/texture/2b94f236c4a642eb2bcdc3589b9c3c4a0b5bd5df9cd5d68f37f8c83f8e3f1"),
         Parrot.Variant.BLUE to URL("http://textures.minecraft.net/texture/aca580b051c63be29da545a9aa7ff7e136df77a81c67dc1ee9e6170c14fb310"), // ChimpD
         Parrot.Variant.GRAY to URL("http://textures.minecraft.net/texture/3d6f4a21e0d62af824f8708ac63410f1a01bbb41d7f4a702d9469c6113222"),
-        Parrot.Variant.GREEN  to URL("http://textures.minecraft.net/texture/ab9a36c5589f3a2e59c1caa9b3b88fada76732bdb4a7926388a8c088bbbcb")
+        Parrot.Variant.GREEN to URL("http://textures.minecraft.net/texture/ab9a36c5589f3a2e59c1caa9b3b88fada76732bdb4a7926388a8c088bbbcb")
     )
 
     private val rabbitHeadIndex = mapOf(
@@ -198,117 +198,432 @@ object Heads {
     )
 
     private val villagerHeadIndex = mapOf(
-        Pair(Villager.Type.PLAINS, Villager.Profession.CARTOGRAPHER) to URL("http://textures.minecraft.net/texture/94248dd0680305ad73b214e8c6b00094e27a4ddd8034676921f905130b858bdb"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.LEATHERWORKER) to URL("http://textures.minecraft.net/texture/f76cf8b7378e889395d538e6354a17a3de6b294bb6bf8db9c701951c68d3c0e6"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.FLETCHER) to URL("http://textures.minecraft.net/texture/17532e90c573a394c7802aa4158305802b59e67f2a2b7e3fd0363aa6ea42b841"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.SHEPHERD) to URL("http://textures.minecraft.net/texture/19e04a752596f939f581930414561b175454d45a0506501e7d2488295a5d5de"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.ARMORER) to URL("http://textures.minecraft.net/texture/f522db92f188ebc7713cf35b4cbaed1cfe2642a5986c3bde993f5cfb3727664c"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.BUTCHER) to URL("http://textures.minecraft.net/texture/c6774d2df515eceae9eed291c1b40f94adf71df0ab81c7191402e1a45b3a2087"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.CLERIC) to URL("http://textures.minecraft.net/texture/a8856eaafad96d76fa3b5edd0e3b5f45ee49a3067306ad94df9ab3bd5b2d142d"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.FARMER) to URL("http://textures.minecraft.net/texture/55a0b07e36eafdecf059c8cb134a7bf0a167f900966f1099252d903276461cce"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.FISHERMAN) to URL("http://textures.minecraft.net/texture/ac15e5fb56fa16b0747b1bcb05335f55d1fa31561c082b5e3643db5565410852"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.LIBRARIAN) to URL("http://textures.minecraft.net/texture/e66a53fc707ce1ff88a576ef40200ce8d49fae4acad1e3b3789c7d1cc1cc541a"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.MASON) to URL("http://textures.minecraft.net/texture/2c02c3ffd5705ab488b305d57ff0168e26de70fd3f739e839661ab947dff37b1"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.NITWIT) to URL("http://textures.minecraft.net/texture/35e799dbfaf98287dfbafce970612c8f075168977aacc30989d34a4a5fcdf429"), // Same as NONE
-        Pair(Villager.Type.PLAINS, Villager.Profession.NONE) to URL("http://textures.minecraft.net/texture/35e799dbfaf98287dfbafce970612c8f075168977aacc30989d34a4a5fcdf429"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.TOOLSMITH) to URL("http://textures.minecraft.net/texture/7dfa07fd1244eb8945f4ededd00426750b77ef5dfbaf03ed775633459ece415a"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.WEAPONSMITH) to URL("http://textures.minecraft.net/texture/5e409b958bc4fe045e95d325e6e97a533137e33fec7042ac027b30bb693a9d42"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.CARTOGRAPHER
+        ) to URL("http://textures.minecraft.net/texture/94248dd0680305ad73b214e8c6b00094e27a4ddd8034676921f905130b858bdb"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.LEATHERWORKER
+        ) to URL("http://textures.minecraft.net/texture/f76cf8b7378e889395d538e6354a17a3de6b294bb6bf8db9c701951c68d3c0e6"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.FLETCHER
+        ) to URL("http://textures.minecraft.net/texture/17532e90c573a394c7802aa4158305802b59e67f2a2b7e3fd0363aa6ea42b841"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.SHEPHERD
+        ) to URL("http://textures.minecraft.net/texture/19e04a752596f939f581930414561b175454d45a0506501e7d2488295a5d5de"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.ARMORER
+        ) to URL("http://textures.minecraft.net/texture/f522db92f188ebc7713cf35b4cbaed1cfe2642a5986c3bde993f5cfb3727664c"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.BUTCHER
+        ) to URL("http://textures.minecraft.net/texture/c6774d2df515eceae9eed291c1b40f94adf71df0ab81c7191402e1a45b3a2087"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.CLERIC
+        ) to URL("http://textures.minecraft.net/texture/a8856eaafad96d76fa3b5edd0e3b5f45ee49a3067306ad94df9ab3bd5b2d142d"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.FARMER
+        ) to URL("http://textures.minecraft.net/texture/55a0b07e36eafdecf059c8cb134a7bf0a167f900966f1099252d903276461cce"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.FISHERMAN
+        ) to URL("http://textures.minecraft.net/texture/ac15e5fb56fa16b0747b1bcb05335f55d1fa31561c082b5e3643db5565410852"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.LIBRARIAN
+        ) to URL("http://textures.minecraft.net/texture/e66a53fc707ce1ff88a576ef40200ce8d49fae4acad1e3b3789c7d1cc1cc541a"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.MASON
+        ) to URL("http://textures.minecraft.net/texture/2c02c3ffd5705ab488b305d57ff0168e26de70fd3f739e839661ab947dff37b1"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.NITWIT
+        ) to URL("http://textures.minecraft.net/texture/35e799dbfaf98287dfbafce970612c8f075168977aacc30989d34a4a5fcdf429"), // Same as NONE
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.NONE
+        ) to URL("http://textures.minecraft.net/texture/35e799dbfaf98287dfbafce970612c8f075168977aacc30989d34a4a5fcdf429"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.TOOLSMITH
+        ) to URL("http://textures.minecraft.net/texture/7dfa07fd1244eb8945f4ededd00426750b77ef5dfbaf03ed775633459ece415a"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.WEAPONSMITH
+        ) to URL("http://textures.minecraft.net/texture/5e409b958bc4fe045e95d325e6e97a533137e33fec7042ac027b30bb693a9d42"),
 
-        Pair(Villager.Type.DESERT, Villager.Profession.CARTOGRAPHER) to URL("http://textures.minecraft.net/texture/a6f25ea1c39a3d73579e5330e04c2b173ba2fd5c0ca3452be5ff1aae083f6328"),
-        Pair(Villager.Type.DESERT, Villager.Profession.LEATHERWORKER) to URL("http://textures.minecraft.net/texture/ee61ecbb86487ed16fedb275db92c9c5043a830f52d973ba44b28a7742006b43"),
-        Pair(Villager.Type.DESERT, Villager.Profession.FLETCHER) to URL("http://textures.minecraft.net/texture/fd4d13baf65ee197dfc6ec28657d25d89f472662204e13cbf761f9412c891335"),
-        Pair(Villager.Type.DESERT, Villager.Profession.SHEPHERD) to URL("http://textures.minecraft.net/texture/ce36c366aeb30385cff151a8cf90bac5a8979a55bc2a808875e233d0f81b24a9"),
-        Pair(Villager.Type.DESERT, Villager.Profession.ARMORER) to URL("http://textures.minecraft.net/texture/d0a3e6c961fb4d6efcf4576455fcd27bc78401256fdf39b25488f31984af96ba"),
-        Pair(Villager.Type.DESERT, Villager.Profession.BUTCHER) to URL("http://textures.minecraft.net/texture/4a6b7136db906a2af54fd446094f5d4d074c4625665bce5706ad6208b8b383f9"),
-        Pair(Villager.Type.DESERT, Villager.Profession.CLERIC) to URL("http://textures.minecraft.net/texture/d24ba760a61dd256c52b325129f46016ae892232a0dea1715f997f7c4d622bef"),
-        Pair(Villager.Type.DESERT, Villager.Profession.FARMER) to URL("http://textures.minecraft.net/texture/355d61a2409eb0b49b3e88b2888467f20a3b06212a10e7b6efb9ce3bc1a0e20f"),
-        Pair(Villager.Type.DESERT, Villager.Profession.FISHERMAN) to URL("http://textures.minecraft.net/texture/74111111e532d68f0e4f913a4e3aedd0c9dfb2847a8aaf1ffa52b3dabcff86ed"),
-        Pair(Villager.Type.DESERT, Villager.Profession.LIBRARIAN) to URL("http://textures.minecraft.net/texture/ebff5901b97efef922555325e910a6d35cc46967ff8a7c2a0e5753af23ddcff2"),
-        Pair(Villager.Type.DESERT, Villager.Profession.MASON) to URL("http://textures.minecraft.net/texture/4c4d7ea038187770cc2e4817c9209e19b74f5d288ed633281ecccaf5c8ebc767"),
-        Pair(Villager.Type.DESERT, Villager.Profession.NITWIT) to URL("http://textures.minecraft.net/texture/598a28aa588c44ff4c93446a7c29d83efac1e5fc8e90d1d6c386c4105dca8f77"), // Same as NONE
-        Pair(Villager.Type.DESERT, Villager.Profession.NONE) to URL("http://textures.minecraft.net/texture/598a28aa588c44ff4c93446a7c29d83efac1e5fc8e90d1d6c386c4105dca8f77"),
-        Pair(Villager.Type.DESERT, Villager.Profession.TOOLSMITH) to URL("http://textures.minecraft.net/texture/29d904fdae68fb120e9ae0f3537460f2a7c1de9159ab3f2b44c844048febabeb"),
-        Pair(Villager.Type.DESERT, Villager.Profession.WEAPONSMITH) to URL("http://textures.minecraft.net/texture/ebba69f6ee3e128bc2feec78c247b2a2f00c3aea11d8906c728de92c60a542ed"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.CARTOGRAPHER
+        ) to URL("http://textures.minecraft.net/texture/a6f25ea1c39a3d73579e5330e04c2b173ba2fd5c0ca3452be5ff1aae083f6328"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.LEATHERWORKER
+        ) to URL("http://textures.minecraft.net/texture/ee61ecbb86487ed16fedb275db92c9c5043a830f52d973ba44b28a7742006b43"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.FLETCHER
+        ) to URL("http://textures.minecraft.net/texture/fd4d13baf65ee197dfc6ec28657d25d89f472662204e13cbf761f9412c891335"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.SHEPHERD
+        ) to URL("http://textures.minecraft.net/texture/ce36c366aeb30385cff151a8cf90bac5a8979a55bc2a808875e233d0f81b24a9"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.ARMORER
+        ) to URL("http://textures.minecraft.net/texture/d0a3e6c961fb4d6efcf4576455fcd27bc78401256fdf39b25488f31984af96ba"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.BUTCHER
+        ) to URL("http://textures.minecraft.net/texture/4a6b7136db906a2af54fd446094f5d4d074c4625665bce5706ad6208b8b383f9"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.CLERIC
+        ) to URL("http://textures.minecraft.net/texture/d24ba760a61dd256c52b325129f46016ae892232a0dea1715f997f7c4d622bef"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.FARMER
+        ) to URL("http://textures.minecraft.net/texture/355d61a2409eb0b49b3e88b2888467f20a3b06212a10e7b6efb9ce3bc1a0e20f"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.FISHERMAN
+        ) to URL("http://textures.minecraft.net/texture/74111111e532d68f0e4f913a4e3aedd0c9dfb2847a8aaf1ffa52b3dabcff86ed"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.LIBRARIAN
+        ) to URL("http://textures.minecraft.net/texture/ebff5901b97efef922555325e910a6d35cc46967ff8a7c2a0e5753af23ddcff2"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.MASON
+        ) to URL("http://textures.minecraft.net/texture/4c4d7ea038187770cc2e4817c9209e19b74f5d288ed633281ecccaf5c8ebc767"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.NITWIT
+        ) to URL("http://textures.minecraft.net/texture/598a28aa588c44ff4c93446a7c29d83efac1e5fc8e90d1d6c386c4105dca8f77"), // Same as NONE
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.NONE
+        ) to URL("http://textures.minecraft.net/texture/598a28aa588c44ff4c93446a7c29d83efac1e5fc8e90d1d6c386c4105dca8f77"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.TOOLSMITH
+        ) to URL("http://textures.minecraft.net/texture/29d904fdae68fb120e9ae0f3537460f2a7c1de9159ab3f2b44c844048febabeb"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.WEAPONSMITH
+        ) to URL("http://textures.minecraft.net/texture/ebba69f6ee3e128bc2feec78c247b2a2f00c3aea11d8906c728de92c60a542ed"),
 
-        Pair(Villager.Type.JUNGLE, Villager.Profession.CARTOGRAPHER) to URL("http://textures.minecraft.net/texture/70880c4367c4162a1dbbb88cd84e52906b18612f1185bf6efe8244fee2939798"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.LEATHERWORKER) to URL("http://textures.minecraft.net/texture/22a354db4b0a732dd847dfe4ad0a0729abbc7b8c500b9e6381950ce856f1de39"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.FLETCHER) to URL("http://textures.minecraft.net/texture/99e7c054a8ab2d7f6447de438d337323632e9c3fcdb30d39ac336b523f84e3e6"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.SHEPHERD) to URL("http://textures.minecraft.net/texture/e38bc381f74ce58e86d9d417d5125fb72e758c58d93f34cafc86d1fc51447d53"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.ARMORER) to URL("http://textures.minecraft.net/texture/adad6ca8eae505baea8a4f2ecffe719f3155a22d28f82d82d528440f1a77aa14"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.BUTCHER) to URL("http://textures.minecraft.net/texture/9a9e2421cdc09f2ee2710e80bbea3f64ff35f728cff8defa8d87540efe7966d"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.CLERIC) to URL("http://textures.minecraft.net/texture/86e7a90bb53908c19ccf795e6ea5c19d097b19f1f111fc2f30a61e689da8a4fd"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.FARMER) to URL("http://textures.minecraft.net/texture/87f338bcd9fac0c666f2a925cf07d9b0f5fa9f5fd9443f5951ce54ec5b017610"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.FISHERMAN) to URL("http://textures.minecraft.net/texture/d7a9e8b1afe5ee5dd498734cc221c17b71f1de1a6dc8eab2fc88c332ed244c97"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.LIBRARIAN) to URL("http://textures.minecraft.net/texture/7e5995106d080f10b2052de08e355f34a2213904d9d32f6dc2d1b27bec753b74"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.MASON) to URL("http://textures.minecraft.net/texture/2fb93930f9d10a05adb84a6816bee930d52944a5e1a67f90f65c7fec4ec5a68a"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.NITWIT) to URL("http://textures.minecraft.net/texture/9988795ae55682915ce2c70fbfbe24e414e882c50d52f2281d070488ac18115"), // Same as NONE
-        Pair(Villager.Type.JUNGLE, Villager.Profession.NONE) to URL("http://textures.minecraft.net/texture/9988795ae55682915ce2c70fbfbe24e414e882c50d52f2281d070488ac18115"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.TOOLSMITH) to URL("http://textures.minecraft.net/texture/16ec61097e11bfe6f10aaa12e5c0a54c829bdbd9d9d7a32fc627e6b5a931e77"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.WEAPONSMITH) to URL("http://textures.minecraft.net/texture/25fafa2be55bd15aea6e2925f5d24f8068e0f4a2616f3b92b380d94912f0ec5f"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.CARTOGRAPHER
+        ) to URL("http://textures.minecraft.net/texture/70880c4367c4162a1dbbb88cd84e52906b18612f1185bf6efe8244fee2939798"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.LEATHERWORKER
+        ) to URL("http://textures.minecraft.net/texture/22a354db4b0a732dd847dfe4ad0a0729abbc7b8c500b9e6381950ce856f1de39"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.FLETCHER
+        ) to URL("http://textures.minecraft.net/texture/99e7c054a8ab2d7f6447de438d337323632e9c3fcdb30d39ac336b523f84e3e6"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.SHEPHERD
+        ) to URL("http://textures.minecraft.net/texture/e38bc381f74ce58e86d9d417d5125fb72e758c58d93f34cafc86d1fc51447d53"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.ARMORER
+        ) to URL("http://textures.minecraft.net/texture/adad6ca8eae505baea8a4f2ecffe719f3155a22d28f82d82d528440f1a77aa14"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.BUTCHER
+        ) to URL("http://textures.minecraft.net/texture/9a9e2421cdc09f2ee2710e80bbea3f64ff35f728cff8defa8d87540efe7966d"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.CLERIC
+        ) to URL("http://textures.minecraft.net/texture/86e7a90bb53908c19ccf795e6ea5c19d097b19f1f111fc2f30a61e689da8a4fd"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.FARMER
+        ) to URL("http://textures.minecraft.net/texture/87f338bcd9fac0c666f2a925cf07d9b0f5fa9f5fd9443f5951ce54ec5b017610"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.FISHERMAN
+        ) to URL("http://textures.minecraft.net/texture/d7a9e8b1afe5ee5dd498734cc221c17b71f1de1a6dc8eab2fc88c332ed244c97"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.LIBRARIAN
+        ) to URL("http://textures.minecraft.net/texture/7e5995106d080f10b2052de08e355f34a2213904d9d32f6dc2d1b27bec753b74"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.MASON
+        ) to URL("http://textures.minecraft.net/texture/2fb93930f9d10a05adb84a6816bee930d52944a5e1a67f90f65c7fec4ec5a68a"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.NITWIT
+        ) to URL("http://textures.minecraft.net/texture/9988795ae55682915ce2c70fbfbe24e414e882c50d52f2281d070488ac18115"), // Same as NONE
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.NONE
+        ) to URL("http://textures.minecraft.net/texture/9988795ae55682915ce2c70fbfbe24e414e882c50d52f2281d070488ac18115"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.TOOLSMITH
+        ) to URL("http://textures.minecraft.net/texture/16ec61097e11bfe6f10aaa12e5c0a54c829bdbd9d9d7a32fc627e6b5a931e77"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.WEAPONSMITH
+        ) to URL("http://textures.minecraft.net/texture/25fafa2be55bd15aea6e2925f5d24f8068e0f4a2616f3b92b380d94912f0ec5f"),
 
-        Pair(Villager.Type.SNOW, Villager.Profession.CARTOGRAPHER) to URL("http://textures.minecraft.net/texture/4143895b04cce7b3ad956620bb48d1aaaa6bbdcc10bb3a8c4aa0a55939f050be"),
-        Pair(Villager.Type.SNOW, Villager.Profession.LEATHERWORKER) to URL("http://textures.minecraft.net/texture/b0e4aa6f5455e321059e202abc9d9e23675663070e92a079e8cb544f7be4c755"),
-        Pair(Villager.Type.SNOW, Villager.Profession.FLETCHER) to URL("http://textures.minecraft.net/texture/1e126158220e946517b2c20e13805928df06e19c1101bdea2bc5a4fc95f9c011"),
-        Pair(Villager.Type.SNOW, Villager.Profession.SHEPHERD) to URL("http://textures.minecraft.net/texture/d1644a552dd06f797413c002d41da52904a7bcfd744c5d2c1fe348d9f66cbbeb"),
-        Pair(Villager.Type.SNOW, Villager.Profession.ARMORER) to URL("http://textures.minecraft.net/texture/edcb21090cd7e97066a1f1dcae778cda032df8af953767d2a04f4a78dcfc2496"),
-        Pair(Villager.Type.SNOW, Villager.Profession.BUTCHER) to URL("http://textures.minecraft.net/texture/7bb5bfa9ac5412e7d116f9d424e0fd3fa40eedc2c3e7c906c055bb5f4c5c587a"),
-        Pair(Villager.Type.SNOW, Villager.Profession.CLERIC) to URL("http://textures.minecraft.net/texture/7e3d3635ce411abf1e4f373d161d07b8c47e359b6c56f74b413cb494ac746e2d"),
-        Pair(Villager.Type.SNOW, Villager.Profession.FARMER) to URL("http://textures.minecraft.net/texture/fd95ad3f37bb323785f8d6816763e5a739e2814d611a7ab4afff976f91729faf"),
-        Pair(Villager.Type.SNOW, Villager.Profession.FISHERMAN) to URL("http://textures.minecraft.net/texture/61d644761f706d31c99a593c8d5f7cbbd4372d73fbee8464f482fa6c139d97d4"),
-        Pair(Villager.Type.SNOW, Villager.Profession.LIBRARIAN) to URL("http://textures.minecraft.net/texture/1806f9767f087e3e4c09ad012bfd063d013ba4c3169fbb0efd7538e28d7d83d"),
-        Pair(Villager.Type.SNOW, Villager.Profession.MASON) to URL("http://textures.minecraft.net/texture/f6a5a4b492cf3861d3044a911e1364dadf7a2be41fb2f9a5c619de5cc9a5af00"),
-        Pair(Villager.Type.SNOW, Villager.Profession.NITWIT) to URL("http://textures.minecraft.net/texture/3cc02372f6292a131aa035cef8e52475efa966352e05c2dba374f1309e569dbb"), // Same as NONE
-        Pair(Villager.Type.SNOW, Villager.Profession.NONE) to URL("http://textures.minecraft.net/texture/3cc02372f6292a131aa035cef8e52475efa966352e05c2dba374f1309e569dbb"),
-        Pair(Villager.Type.SNOW, Villager.Profession.TOOLSMITH) to URL("http://textures.minecraft.net/texture/fe7db3a5cb5dd6811fa87e2d113aa6057c669078dd62ff28b377f168277d95ce"),
-        Pair(Villager.Type.SNOW, Villager.Profession.WEAPONSMITH) to URL("http://textures.minecraft.net/texture/2844e3ffcc17d4ab0d0eebb6bfdb9603e2f7a095d700028c9db275ae1a95e7f2"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.CARTOGRAPHER
+        ) to URL("http://textures.minecraft.net/texture/4143895b04cce7b3ad956620bb48d1aaaa6bbdcc10bb3a8c4aa0a55939f050be"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.LEATHERWORKER
+        ) to URL("http://textures.minecraft.net/texture/b0e4aa6f5455e321059e202abc9d9e23675663070e92a079e8cb544f7be4c755"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.FLETCHER
+        ) to URL("http://textures.minecraft.net/texture/1e126158220e946517b2c20e13805928df06e19c1101bdea2bc5a4fc95f9c011"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.SHEPHERD
+        ) to URL("http://textures.minecraft.net/texture/d1644a552dd06f797413c002d41da52904a7bcfd744c5d2c1fe348d9f66cbbeb"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.ARMORER
+        ) to URL("http://textures.minecraft.net/texture/edcb21090cd7e97066a1f1dcae778cda032df8af953767d2a04f4a78dcfc2496"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.BUTCHER
+        ) to URL("http://textures.minecraft.net/texture/7bb5bfa9ac5412e7d116f9d424e0fd3fa40eedc2c3e7c906c055bb5f4c5c587a"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.CLERIC
+        ) to URL("http://textures.minecraft.net/texture/7e3d3635ce411abf1e4f373d161d07b8c47e359b6c56f74b413cb494ac746e2d"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.FARMER
+        ) to URL("http://textures.minecraft.net/texture/fd95ad3f37bb323785f8d6816763e5a739e2814d611a7ab4afff976f91729faf"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.FISHERMAN
+        ) to URL("http://textures.minecraft.net/texture/61d644761f706d31c99a593c8d5f7cbbd4372d73fbee8464f482fa6c139d97d4"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.LIBRARIAN
+        ) to URL("http://textures.minecraft.net/texture/1806f9767f087e3e4c09ad012bfd063d013ba4c3169fbb0efd7538e28d7d83d"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.MASON
+        ) to URL("http://textures.minecraft.net/texture/f6a5a4b492cf3861d3044a911e1364dadf7a2be41fb2f9a5c619de5cc9a5af00"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.NITWIT
+        ) to URL("http://textures.minecraft.net/texture/3cc02372f6292a131aa035cef8e52475efa966352e05c2dba374f1309e569dbb"), // Same as NONE
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.NONE
+        ) to URL("http://textures.minecraft.net/texture/3cc02372f6292a131aa035cef8e52475efa966352e05c2dba374f1309e569dbb"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.TOOLSMITH
+        ) to URL("http://textures.minecraft.net/texture/fe7db3a5cb5dd6811fa87e2d113aa6057c669078dd62ff28b377f168277d95ce"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.WEAPONSMITH
+        ) to URL("http://textures.minecraft.net/texture/2844e3ffcc17d4ab0d0eebb6bfdb9603e2f7a095d700028c9db275ae1a95e7f2"),
 
-        Pair(Villager.Type.SAVANNA, Villager.Profession.CARTOGRAPHER) to URL("http://textures.minecraft.net/texture/f2f944222ff693fe088bd543c8efdd3246eab6a34978acde774f7e295dee9e16"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.LEATHERWORKER) to URL("http://textures.minecraft.net/texture/f45c99c80d0345c4be3fc3a2f0d05a3e23a5c4bf7e991568eee64a6806f048c0"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.FLETCHER) to URL("http://textures.minecraft.net/texture/fac222efc6ab4bd1c70351de007e37bf3d028c1d93f08efeaea8a07ecb62867b"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.SHEPHERD) to URL("http://textures.minecraft.net/texture/431c0f4603b51eb6d8892f8ec0b520979041d671b8d378c8b26d097b8f7e1327"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.ARMORER) to URL("http://textures.minecraft.net/texture/8b6cd9a9fb4b13f49d25b82a14040c045ff57aa8c279cce20a2503b8184d9b9c"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.BUTCHER) to URL("http://textures.minecraft.net/texture/366715115de766c949e8700b7650c8994fd3eeb97bd1836c2e16b5d8d5551b5d"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.CLERIC) to URL("http://textures.minecraft.net/texture/46cc8fa8379665fbb8c924e45235da1c988c1c523af1b2479796d4a49af1c5c8"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.FARMER) to URL("http://textures.minecraft.net/texture/c9c94faa7ac9b0752dc7da7386b4d8fc34e2916da5b01789275bbcb7dfce7fcb"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.FISHERMAN) to URL("http://textures.minecraft.net/texture/6acacef5f04bed42e8a808ccec39889e666fb1299e99a9e09060f8cf29e6baf6"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.LIBRARIAN) to URL("http://textures.minecraft.net/texture/71f714133ce78d1181c4d5d3e53711ece10c4c9a28201188ee1a6f35cc0fa3ca"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.MASON) to URL("http://textures.minecraft.net/texture/d00364c98af059ae6d581fca6038bee14b869998fb3aa382b3c4775d54e8481f"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.NITWIT) to URL("http://textures.minecraft.net/texture/dd9ee5d8b58fddd27bc679c0548f55baa845f9f1df5e88c7c5bda6eb9df2b399"), // Same as NONE
-        Pair(Villager.Type.SAVANNA, Villager.Profession.NONE) to URL("http://textures.minecraft.net/texture/dd9ee5d8b58fddd27bc679c0548f55baa845f9f1df5e88c7c5bda6eb9df2b399"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.TOOLSMITH) to URL("http://textures.minecraft.net/texture/7d586f55be429db689c070c47aa9b1284cd51da493768559d7132df8c8916aed"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.WEAPONSMITH) to URL("http://textures.minecraft.net/texture/c1beaa099c823332e7780a32110f5b0bfc2546e53fde8e206817325894018f3"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.CARTOGRAPHER
+        ) to URL("http://textures.minecraft.net/texture/f2f944222ff693fe088bd543c8efdd3246eab6a34978acde774f7e295dee9e16"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.LEATHERWORKER
+        ) to URL("http://textures.minecraft.net/texture/f45c99c80d0345c4be3fc3a2f0d05a3e23a5c4bf7e991568eee64a6806f048c0"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.FLETCHER
+        ) to URL("http://textures.minecraft.net/texture/fac222efc6ab4bd1c70351de007e37bf3d028c1d93f08efeaea8a07ecb62867b"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.SHEPHERD
+        ) to URL("http://textures.minecraft.net/texture/431c0f4603b51eb6d8892f8ec0b520979041d671b8d378c8b26d097b8f7e1327"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.ARMORER
+        ) to URL("http://textures.minecraft.net/texture/8b6cd9a9fb4b13f49d25b82a14040c045ff57aa8c279cce20a2503b8184d9b9c"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.BUTCHER
+        ) to URL("http://textures.minecraft.net/texture/366715115de766c949e8700b7650c8994fd3eeb97bd1836c2e16b5d8d5551b5d"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.CLERIC
+        ) to URL("http://textures.minecraft.net/texture/46cc8fa8379665fbb8c924e45235da1c988c1c523af1b2479796d4a49af1c5c8"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.FARMER
+        ) to URL("http://textures.minecraft.net/texture/c9c94faa7ac9b0752dc7da7386b4d8fc34e2916da5b01789275bbcb7dfce7fcb"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.FISHERMAN
+        ) to URL("http://textures.minecraft.net/texture/6acacef5f04bed42e8a808ccec39889e666fb1299e99a9e09060f8cf29e6baf6"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.LIBRARIAN
+        ) to URL("http://textures.minecraft.net/texture/71f714133ce78d1181c4d5d3e53711ece10c4c9a28201188ee1a6f35cc0fa3ca"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.MASON
+        ) to URL("http://textures.minecraft.net/texture/d00364c98af059ae6d581fca6038bee14b869998fb3aa382b3c4775d54e8481f"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.NITWIT
+        ) to URL("http://textures.minecraft.net/texture/dd9ee5d8b58fddd27bc679c0548f55baa845f9f1df5e88c7c5bda6eb9df2b399"), // Same as NONE
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.NONE
+        ) to URL("http://textures.minecraft.net/texture/dd9ee5d8b58fddd27bc679c0548f55baa845f9f1df5e88c7c5bda6eb9df2b399"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.TOOLSMITH
+        ) to URL("http://textures.minecraft.net/texture/7d586f55be429db689c070c47aa9b1284cd51da493768559d7132df8c8916aed"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.WEAPONSMITH
+        ) to URL("http://textures.minecraft.net/texture/c1beaa099c823332e7780a32110f5b0bfc2546e53fde8e206817325894018f3"),
 
-        Pair(Villager.Type.SWAMP, Villager.Profession.CARTOGRAPHER) to URL("http://textures.minecraft.net/texture/2e040983328da42b4eda931bdcefb39a8816b32045da1ed9f335e538c18f3c41"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.LEATHERWORKER) to URL("http://textures.minecraft.net/texture/5007c4a3e3b8d31b94a95173bc2aea4b718c150f0166f0c964ca9e04be664a22"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.FLETCHER) to URL("http://textures.minecraft.net/texture/12ed931ee6b77539d2fd7d271617db6b19365cb0e3c52eac005272301d07ac74"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.SHEPHERD) to URL("http://textures.minecraft.net/texture/69cf18b0447ff1dfcfba9e4c4ac7f6e26a986352dd1878c6a1e00d0f5dd6211d"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.ARMORER) to URL("http://textures.minecraft.net/texture/ea7abb127b69338a81b87a17b664214ee9fe0437c8b577a0e3674b1c6d0fca77"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.BUTCHER) to URL("http://textures.minecraft.net/texture/5393370444ee915595630cd900d065c03cc5c61f7a91edd8fec24f204b3eeb4f"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.CLERIC) to URL("http://textures.minecraft.net/texture/1a8e3e224a768bb5771d6e4653e48a54fe6cd095fc399d3ec39b95c2544af054"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.FARMER) to URL("http://textures.minecraft.net/texture/e2cfc7eade016a969c2b3a87e010a02ac910df60d3714f76184b2c17a703101e"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.FISHERMAN) to URL("http://textures.minecraft.net/texture/d223664886d96643d3afdc4a2ac72ebc2bcd229e517519e15c3e7c1570ad745e"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.LIBRARIAN) to URL("http://textures.minecraft.net/texture/e7473596a1cb40cf1b3ec5f46f2f9d590d5e78d0507680a7b9bc4304587da0c9"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.MASON) to URL("http://textures.minecraft.net/texture/4b17427d4e9d89fa1e2cb297cd146ed2fdb49721a0eabf048e7e7d24c73fcda5"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.NITWIT) to URL("http://textures.minecraft.net/texture/b8c0dd0797fd1ee9f1849d4ac1ebb871af7fe610c9ca61660ce112be842f6b41"), // Same as NONE
-        Pair(Villager.Type.SWAMP, Villager.Profession.NONE) to URL("http://textures.minecraft.net/texture/b8c0dd0797fd1ee9f1849d4ac1ebb871af7fe610c9ca61660ce112be842f6b41"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.TOOLSMITH) to URL("http://textures.minecraft.net/texture/ad074b26b09c67feefea4e0245f63306e45cb935e98dbfaa3020eb40c7069719"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.WEAPONSMITH) to URL("http://textures.minecraft.net/texture/4625c64beded1875b8cd9fdf810f16430e74197371572024b7307f26637573f6"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.CARTOGRAPHER
+        ) to URL("http://textures.minecraft.net/texture/2e040983328da42b4eda931bdcefb39a8816b32045da1ed9f335e538c18f3c41"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.LEATHERWORKER
+        ) to URL("http://textures.minecraft.net/texture/5007c4a3e3b8d31b94a95173bc2aea4b718c150f0166f0c964ca9e04be664a22"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.FLETCHER
+        ) to URL("http://textures.minecraft.net/texture/12ed931ee6b77539d2fd7d271617db6b19365cb0e3c52eac005272301d07ac74"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.SHEPHERD
+        ) to URL("http://textures.minecraft.net/texture/69cf18b0447ff1dfcfba9e4c4ac7f6e26a986352dd1878c6a1e00d0f5dd6211d"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.ARMORER
+        ) to URL("http://textures.minecraft.net/texture/ea7abb127b69338a81b87a17b664214ee9fe0437c8b577a0e3674b1c6d0fca77"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.BUTCHER
+        ) to URL("http://textures.minecraft.net/texture/5393370444ee915595630cd900d065c03cc5c61f7a91edd8fec24f204b3eeb4f"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.CLERIC
+        ) to URL("http://textures.minecraft.net/texture/1a8e3e224a768bb5771d6e4653e48a54fe6cd095fc399d3ec39b95c2544af054"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.FARMER
+        ) to URL("http://textures.minecraft.net/texture/e2cfc7eade016a969c2b3a87e010a02ac910df60d3714f76184b2c17a703101e"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.FISHERMAN
+        ) to URL("http://textures.minecraft.net/texture/d223664886d96643d3afdc4a2ac72ebc2bcd229e517519e15c3e7c1570ad745e"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.LIBRARIAN
+        ) to URL("http://textures.minecraft.net/texture/e7473596a1cb40cf1b3ec5f46f2f9d590d5e78d0507680a7b9bc4304587da0c9"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.MASON
+        ) to URL("http://textures.minecraft.net/texture/4b17427d4e9d89fa1e2cb297cd146ed2fdb49721a0eabf048e7e7d24c73fcda5"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.NITWIT
+        ) to URL("http://textures.minecraft.net/texture/b8c0dd0797fd1ee9f1849d4ac1ebb871af7fe610c9ca61660ce112be842f6b41"), // Same as NONE
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.NONE
+        ) to URL("http://textures.minecraft.net/texture/b8c0dd0797fd1ee9f1849d4ac1ebb871af7fe610c9ca61660ce112be842f6b41"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.TOOLSMITH
+        ) to URL("http://textures.minecraft.net/texture/ad074b26b09c67feefea4e0245f63306e45cb935e98dbfaa3020eb40c7069719"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.WEAPONSMITH
+        ) to URL("http://textures.minecraft.net/texture/4625c64beded1875b8cd9fdf810f16430e74197371572024b7307f26637573f6"),
 
-        Pair(Villager.Type.TAIGA, Villager.Profession.CARTOGRAPHER) to URL("http://textures.minecraft.net/texture/3e1fb52b7ae82bb091c54c33b7fa6b80c8a0250372b9d1cbd6f796522f6479d"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.LEATHERWORKER) to URL("http://textures.minecraft.net/texture/70c6c3a913af9293d6372b0bd4c2de2cc6d3b6e473e3fa0fff034741a612829d"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.FLETCHER) to URL("http://textures.minecraft.net/texture/99c45ed238e0b0c664dde09de64ba9e6038dd231dd58466fbdcdcc911e0ffbd2"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.SHEPHERD) to URL("http://textures.minecraft.net/texture/45771b738349d1de0e01e894ae401686f598ca19a2088b095149fde9b76a4377"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.ARMORER) to URL("http://textures.minecraft.net/texture/6fc9fbe1422d5b0edbe0650e511b1d9c2291460752b066c4f701c0297a6201e8"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.BUTCHER) to URL("http://textures.minecraft.net/texture/89b921ca9e5e7a43ebb904ca5b833d5c9b37f0fe039e9112303c0f9b188ab739"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.CLERIC) to URL("http://textures.minecraft.net/texture/4bfad3b0fc8d19a7dda68087cf5a5e6865cc9faf2e79edf10af4bfa70a4d4bd9"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.FARMER) to URL("http://textures.minecraft.net/texture/608bdb53c55fef32a0658e1c7966614af0bff6091249b8fe3b77a0275da82e43"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.FISHERMAN) to URL("http://textures.minecraft.net/texture/ac7f44b511f7063187d0fe12c74a0cb8c93f34d0f587338b2a9c22f3fa2f212"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.LIBRARIAN) to URL("http://textures.minecraft.net/texture/74f04eb20cd0b82aaef2520aed9867c3cca247a4cd975a12ea50df03a7176241"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.MASON) to URL("http://textures.minecraft.net/texture/621ec612f8f78984a08f8290bd3f1c1892b4f7827b524dbab7eaacc9dd9e22b2"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.NITWIT) to URL("http://textures.minecraft.net/texture/a50b633d21455010638035ff69d204fac44b3f9e29a70836e354bf726e01c83"), // Same as NONE
-        Pair(Villager.Type.TAIGA, Villager.Profession.NONE) to URL("http://textures.minecraft.net/texture/a50b633d21455010638035ff69d204fac44b3f9e29a70836e354bf726e01c83"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.TOOLSMITH) to URL("http://textures.minecraft.net/texture/1a851258491341c00149a9c92de1acde665b131c8a74c9ffe0cb1e3a5ad9749"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.WEAPONSMITH) to URL("http://textures.minecraft.net/texture/8e02febb4c52db1fb9e1e5c852a4e72d8dfe6c4c055a4649abf3d357d233fc1b")
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.CARTOGRAPHER
+        ) to URL("http://textures.minecraft.net/texture/3e1fb52b7ae82bb091c54c33b7fa6b80c8a0250372b9d1cbd6f796522f6479d"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.LEATHERWORKER
+        ) to URL("http://textures.minecraft.net/texture/70c6c3a913af9293d6372b0bd4c2de2cc6d3b6e473e3fa0fff034741a612829d"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.FLETCHER
+        ) to URL("http://textures.minecraft.net/texture/99c45ed238e0b0c664dde09de64ba9e6038dd231dd58466fbdcdcc911e0ffbd2"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.SHEPHERD
+        ) to URL("http://textures.minecraft.net/texture/45771b738349d1de0e01e894ae401686f598ca19a2088b095149fde9b76a4377"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.ARMORER
+        ) to URL("http://textures.minecraft.net/texture/6fc9fbe1422d5b0edbe0650e511b1d9c2291460752b066c4f701c0297a6201e8"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.BUTCHER
+        ) to URL("http://textures.minecraft.net/texture/89b921ca9e5e7a43ebb904ca5b833d5c9b37f0fe039e9112303c0f9b188ab739"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.CLERIC
+        ) to URL("http://textures.minecraft.net/texture/4bfad3b0fc8d19a7dda68087cf5a5e6865cc9faf2e79edf10af4bfa70a4d4bd9"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.FARMER
+        ) to URL("http://textures.minecraft.net/texture/608bdb53c55fef32a0658e1c7966614af0bff6091249b8fe3b77a0275da82e43"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.FISHERMAN
+        ) to URL("http://textures.minecraft.net/texture/ac7f44b511f7063187d0fe12c74a0cb8c93f34d0f587338b2a9c22f3fa2f212"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.LIBRARIAN
+        ) to URL("http://textures.minecraft.net/texture/74f04eb20cd0b82aaef2520aed9867c3cca247a4cd975a12ea50df03a7176241"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.MASON
+        ) to URL("http://textures.minecraft.net/texture/621ec612f8f78984a08f8290bd3f1c1892b4f7827b524dbab7eaacc9dd9e22b2"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.NITWIT
+        ) to URL("http://textures.minecraft.net/texture/a50b633d21455010638035ff69d204fac44b3f9e29a70836e354bf726e01c83"), // Same as NONE
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.NONE
+        ) to URL("http://textures.minecraft.net/texture/a50b633d21455010638035ff69d204fac44b3f9e29a70836e354bf726e01c83"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.TOOLSMITH
+        ) to URL("http://textures.minecraft.net/texture/1a851258491341c00149a9c92de1acde665b131c8a74c9ffe0cb1e3a5ad9749"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.WEAPONSMITH
+        ) to URL("http://textures.minecraft.net/texture/8e02febb4c52db1fb9e1e5c852a4e72d8dfe6c4c055a4649abf3d357d233fc1b")
     )
 
     private val foxHeadIndex = mapOf(
@@ -341,117 +656,432 @@ object Heads {
     )
 
     private val zombieVillagerHeadIndex = mapOf(
-        Pair(Villager.Type.PLAINS, Villager.Profession.ARMORER) to URL("http://textures.minecraft.net/texture/317ab1f4a31be52a6c995e240878f01824cc905439d6642565d6091c641af8ea"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.BUTCHER) to URL("http://textures.minecraft.net/texture/7c8dcbdee983d254f9443670e2f7bf4679cd099232bfe6ef693c4e24ccb9b66d"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.CARTOGRAPHER) to URL("http://textures.minecraft.net/texture/d8d00c15b8feba87b1404663bdb15ae75e40e49ed140635ac80f438b52c221ec"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.CLERIC) to URL("http://textures.minecraft.net/texture/568001f4f7d071b254be7f31205361ae4fab63ce3886471aa1c74e65f65e1e69"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.FARMER) to URL("http://textures.minecraft.net/texture/bab731b3253f03ab73923c93f62d1b14490d412a864a68cd3c15750e044083d9"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.FISHERMAN) to URL("http://textures.minecraft.net/texture/e6a809495549d3c5b70d06a28a5fa6bed765da7673c6d3603c6498b368bcfc36"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.FLETCHER) to URL("http://textures.minecraft.net/texture/695722fc8f8723702c325caf4b6af651f9dcbc31086a7270a25a3d3c0e162c01"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.LEATHERWORKER) to URL("http://textures.minecraft.net/texture/9b2388b23ddd6a9a5776ff2e8ca55b4efe3090caaf967c22769c576b0a40b885"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.LIBRARIAN) to URL("http://textures.minecraft.net/texture/7e38e8af075701ad40de5b2ef18e1ed39678e8558444ee91d563d5e5aeb32fab"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.MASON) to URL("http://textures.minecraft.net/texture/8460e678ffa336450d3ae3b109ff13983aa30a948efa0570b96e228bef546afa"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.NITWIT) to URL("http://textures.minecraft.net/texture/da27e420f44f9bb06c7b368402b22af6dc57bf9e8ca3475840f6f75e217809c1"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.NONE) to URL("http://textures.minecraft.net/texture/c45c11e0327035649ca0600ef938900e25fd1e38017422bc9740e4cda2cba892"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.SHEPHERD) to URL("http://textures.minecraft.net/texture/91cf0d9ad1034c34c04cb4d1d31303947e852c7573f3a4c47998030d656609bb"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.TOOLSMITH) to URL("http://textures.minecraft.net/texture/81b5f4fa6b2ac7f860586f748848f4f86d79cbc86ac77ff74396bc810ae9f844"),
-        Pair(Villager.Type.PLAINS, Villager.Profession.WEAPONSMITH) to URL("http://textures.minecraft.net/texture/f354a4172a9ba9c47fb853ab284fdc0a344326013e5d73c4bec7800d83f4e399"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.ARMORER
+        ) to URL("http://textures.minecraft.net/texture/317ab1f4a31be52a6c995e240878f01824cc905439d6642565d6091c641af8ea"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.BUTCHER
+        ) to URL("http://textures.minecraft.net/texture/7c8dcbdee983d254f9443670e2f7bf4679cd099232bfe6ef693c4e24ccb9b66d"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.CARTOGRAPHER
+        ) to URL("http://textures.minecraft.net/texture/d8d00c15b8feba87b1404663bdb15ae75e40e49ed140635ac80f438b52c221ec"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.CLERIC
+        ) to URL("http://textures.minecraft.net/texture/568001f4f7d071b254be7f31205361ae4fab63ce3886471aa1c74e65f65e1e69"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.FARMER
+        ) to URL("http://textures.minecraft.net/texture/bab731b3253f03ab73923c93f62d1b14490d412a864a68cd3c15750e044083d9"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.FISHERMAN
+        ) to URL("http://textures.minecraft.net/texture/e6a809495549d3c5b70d06a28a5fa6bed765da7673c6d3603c6498b368bcfc36"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.FLETCHER
+        ) to URL("http://textures.minecraft.net/texture/695722fc8f8723702c325caf4b6af651f9dcbc31086a7270a25a3d3c0e162c01"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.LEATHERWORKER
+        ) to URL("http://textures.minecraft.net/texture/9b2388b23ddd6a9a5776ff2e8ca55b4efe3090caaf967c22769c576b0a40b885"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.LIBRARIAN
+        ) to URL("http://textures.minecraft.net/texture/7e38e8af075701ad40de5b2ef18e1ed39678e8558444ee91d563d5e5aeb32fab"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.MASON
+        ) to URL("http://textures.minecraft.net/texture/8460e678ffa336450d3ae3b109ff13983aa30a948efa0570b96e228bef546afa"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.NITWIT
+        ) to URL("http://textures.minecraft.net/texture/da27e420f44f9bb06c7b368402b22af6dc57bf9e8ca3475840f6f75e217809c1"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.NONE
+        ) to URL("http://textures.minecraft.net/texture/c45c11e0327035649ca0600ef938900e25fd1e38017422bc9740e4cda2cba892"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.SHEPHERD
+        ) to URL("http://textures.minecraft.net/texture/91cf0d9ad1034c34c04cb4d1d31303947e852c7573f3a4c47998030d656609bb"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.TOOLSMITH
+        ) to URL("http://textures.minecraft.net/texture/81b5f4fa6b2ac7f860586f748848f4f86d79cbc86ac77ff74396bc810ae9f844"),
+        Pair(
+            Villager.Type.PLAINS,
+            Villager.Profession.WEAPONSMITH
+        ) to URL("http://textures.minecraft.net/texture/f354a4172a9ba9c47fb853ab284fdc0a344326013e5d73c4bec7800d83f4e399"),
 
-        Pair(Villager.Type.DESERT, Villager.Profession.ARMORER) to URL("http://textures.minecraft.net/texture/625afec4f8ac72c349c5b5cb4cc66935333ce4456746814ab58f4b3c92c238b9"),
-        Pair(Villager.Type.DESERT, Villager.Profession.BUTCHER) to URL("http://textures.minecraft.net/texture/aa2534224c93588ac40177486ad1bc86668bc8f0b6ca8d083e3abd2a51cd9aba"),
-        Pair(Villager.Type.DESERT, Villager.Profession.CARTOGRAPHER) to URL("http://textures.minecraft.net/texture/2835374210c6c143d4db32f498187723889c23f59c7efdfe8fcd440c0bbfae39"),
-        Pair(Villager.Type.DESERT, Villager.Profession.CLERIC) to URL("http://textures.minecraft.net/texture/b89d85f45c87f10b3de421426e3a83718d7806cefb0204bea0c629f363150f3f"),
-        Pair(Villager.Type.DESERT, Villager.Profession.FARMER) to URL("http://textures.minecraft.net/texture/e4bea5fe0d154654ecde42e1670fd430463190c29d4eaee7bf8ab5c273187369"),
-        Pair(Villager.Type.DESERT, Villager.Profession.FISHERMAN) to URL("http://textures.minecraft.net/texture/c4bbb3cd6405baa49e0d1087554c2ce545c542f3a191ac9c3f6df38968e127d6"),
-        Pair(Villager.Type.DESERT, Villager.Profession.FLETCHER) to URL("http://textures.minecraft.net/texture/2589266ce3e2d1f97db894569926cb62fd87f9320b227c2e2890bea2f76369ca"),
-        Pair(Villager.Type.DESERT, Villager.Profession.LEATHERWORKER) to URL("http://textures.minecraft.net/texture/272d98c9101c69e74d7ba65229a949716535bca7d9f41ed3a40b653e7fc903b4"),
-        Pair(Villager.Type.DESERT, Villager.Profession.LIBRARIAN) to URL("http://textures.minecraft.net/texture/31998f7638de5ad0e902b29d177edf940dcaddd0633fd00d90b146cfbc47ae15"),
-        Pair(Villager.Type.DESERT, Villager.Profession.MASON) to URL("http://textures.minecraft.net/texture/e7ee6e76243879b217d1dee58d1407efbe75042ebd5f9c1d8b1411f5b712e9dd"),
-        Pair(Villager.Type.DESERT, Villager.Profession.NITWIT) to URL("http://textures.minecraft.net/texture/41225ae82e4918eb84f4687fe97a83b291515e7a56e55499c8b046aed2d6e182"), // Same as NONE
-        Pair(Villager.Type.DESERT, Villager.Profession.NONE) to URL("http://textures.minecraft.net/texture/41225ae82e4918eb84f4687fe97a83b291515e7a56e55499c8b046aed2d6e182"),
-        Pair(Villager.Type.DESERT, Villager.Profession.SHEPHERD) to URL("http://textures.minecraft.net/texture/6f14f1a3f92f84337222f25ee3ab4bfa70328106eb46060d8753867ad8a1a2c0"),
-        Pair(Villager.Type.DESERT, Villager.Profession.TOOLSMITH) to URL("http://textures.minecraft.net/texture/d08d2d0b849c13ca1e5156f30bf2bbd3e7e4305a6ec269c01582c181710eabe4"),
-        Pair(Villager.Type.DESERT, Villager.Profession.WEAPONSMITH) to URL("http://textures.minecraft.net/texture/649adf83a4f6e37fe3f61b46d73ebd8a342d1c75dd4835cbd299d2968d7023f4"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.ARMORER
+        ) to URL("http://textures.minecraft.net/texture/625afec4f8ac72c349c5b5cb4cc66935333ce4456746814ab58f4b3c92c238b9"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.BUTCHER
+        ) to URL("http://textures.minecraft.net/texture/aa2534224c93588ac40177486ad1bc86668bc8f0b6ca8d083e3abd2a51cd9aba"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.CARTOGRAPHER
+        ) to URL("http://textures.minecraft.net/texture/2835374210c6c143d4db32f498187723889c23f59c7efdfe8fcd440c0bbfae39"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.CLERIC
+        ) to URL("http://textures.minecraft.net/texture/b89d85f45c87f10b3de421426e3a83718d7806cefb0204bea0c629f363150f3f"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.FARMER
+        ) to URL("http://textures.minecraft.net/texture/e4bea5fe0d154654ecde42e1670fd430463190c29d4eaee7bf8ab5c273187369"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.FISHERMAN
+        ) to URL("http://textures.minecraft.net/texture/c4bbb3cd6405baa49e0d1087554c2ce545c542f3a191ac9c3f6df38968e127d6"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.FLETCHER
+        ) to URL("http://textures.minecraft.net/texture/2589266ce3e2d1f97db894569926cb62fd87f9320b227c2e2890bea2f76369ca"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.LEATHERWORKER
+        ) to URL("http://textures.minecraft.net/texture/272d98c9101c69e74d7ba65229a949716535bca7d9f41ed3a40b653e7fc903b4"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.LIBRARIAN
+        ) to URL("http://textures.minecraft.net/texture/31998f7638de5ad0e902b29d177edf940dcaddd0633fd00d90b146cfbc47ae15"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.MASON
+        ) to URL("http://textures.minecraft.net/texture/e7ee6e76243879b217d1dee58d1407efbe75042ebd5f9c1d8b1411f5b712e9dd"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.NITWIT
+        ) to URL("http://textures.minecraft.net/texture/41225ae82e4918eb84f4687fe97a83b291515e7a56e55499c8b046aed2d6e182"), // Same as NONE
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.NONE
+        ) to URL("http://textures.minecraft.net/texture/41225ae82e4918eb84f4687fe97a83b291515e7a56e55499c8b046aed2d6e182"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.SHEPHERD
+        ) to URL("http://textures.minecraft.net/texture/6f14f1a3f92f84337222f25ee3ab4bfa70328106eb46060d8753867ad8a1a2c0"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.TOOLSMITH
+        ) to URL("http://textures.minecraft.net/texture/d08d2d0b849c13ca1e5156f30bf2bbd3e7e4305a6ec269c01582c181710eabe4"),
+        Pair(
+            Villager.Type.DESERT,
+            Villager.Profession.WEAPONSMITH
+        ) to URL("http://textures.minecraft.net/texture/649adf83a4f6e37fe3f61b46d73ebd8a342d1c75dd4835cbd299d2968d7023f4"),
 
-        Pair(Villager.Type.JUNGLE, Villager.Profession.ARMORER) to URL("http://textures.minecraft.net/texture/6099ca8c012a3783a941d6e2660f1b623c2836d68f001b04b1da51b0f56a9b8"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.BUTCHER) to URL("http://textures.minecraft.net/texture/94eb5346f2c703bbc4963058c4d724d6c7100161252a2eb569cfebfd1065e46b"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.CARTOGRAPHER) to URL("http://textures.minecraft.net/texture/a7b295efb699b158df756364ad2b1d0a73eb4b3cb900c4c750d1241638235ffc"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.CLERIC) to URL("http://textures.minecraft.net/texture/3485ea694f65e73eb546dc2c588cf2d0706bc5e08c14e7125f973b303ff4c8e8"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.FARMER) to URL("http://textures.minecraft.net/texture/532798797d818cb9908075ad3044329d9a9e6dc848015c6506455784f8a0c4eb"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.FISHERMAN) to URL("http://textures.minecraft.net/texture/5753cb23b5720e2e365bb42992e403ae361e356cc4e4b66e54f6292536f3cc05"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.FLETCHER) to URL("http://textures.minecraft.net/texture/651bc09688df7fd324096bd7194e3d0e8968e54fdab9041de587da431ed989ca"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.LEATHERWORKER) to URL("http://textures.minecraft.net/texture/bbb7d4349d39e1832c7192ef3a8efd7a975454a89febec5d33b6bf88a5d4d2a2"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.LIBRARIAN) to URL("http://textures.minecraft.net/texture/a08d71944cb941649c5bdabb698bf866ed0c2517b0fef3667fee4383f95e5f90"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.MASON) to URL("http://textures.minecraft.net/texture/26bc2d9cc319e843cc6d6920430fe2d9aeb1d17ba9989a4450460c10b793d78e"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.NITWIT) to URL("http://textures.minecraft.net/texture/a381c21916010024594bb862c9659b1677937b027599239c2ba6db3a794cd8cf"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.NONE) to URL("http://textures.minecraft.net/texture/649a46275dec0c247df986dfb4b351d289f0242b5fcd620daae113725720c7c9"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.SHEPHERD) to URL("http://textures.minecraft.net/texture/b613f70783086b6265aaf7d5290c7e8f018c77e30d7690ed68884324ff90d39d"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.TOOLSMITH) to URL("http://textures.minecraft.net/texture/8303903eeb9e4f88d4fe1490b46701a847ed23970181f34889bd38e89a034d87"),
-        Pair(Villager.Type.JUNGLE, Villager.Profession.WEAPONSMITH) to URL("http://textures.minecraft.net/texture/2a0c85bac8990b4a051017a4f478ded4540c32aab0d84833b705081ffb36c980"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.ARMORER
+        ) to URL("http://textures.minecraft.net/texture/6099ca8c012a3783a941d6e2660f1b623c2836d68f001b04b1da51b0f56a9b8"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.BUTCHER
+        ) to URL("http://textures.minecraft.net/texture/94eb5346f2c703bbc4963058c4d724d6c7100161252a2eb569cfebfd1065e46b"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.CARTOGRAPHER
+        ) to URL("http://textures.minecraft.net/texture/a7b295efb699b158df756364ad2b1d0a73eb4b3cb900c4c750d1241638235ffc"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.CLERIC
+        ) to URL("http://textures.minecraft.net/texture/3485ea694f65e73eb546dc2c588cf2d0706bc5e08c14e7125f973b303ff4c8e8"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.FARMER
+        ) to URL("http://textures.minecraft.net/texture/532798797d818cb9908075ad3044329d9a9e6dc848015c6506455784f8a0c4eb"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.FISHERMAN
+        ) to URL("http://textures.minecraft.net/texture/5753cb23b5720e2e365bb42992e403ae361e356cc4e4b66e54f6292536f3cc05"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.FLETCHER
+        ) to URL("http://textures.minecraft.net/texture/651bc09688df7fd324096bd7194e3d0e8968e54fdab9041de587da431ed989ca"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.LEATHERWORKER
+        ) to URL("http://textures.minecraft.net/texture/bbb7d4349d39e1832c7192ef3a8efd7a975454a89febec5d33b6bf88a5d4d2a2"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.LIBRARIAN
+        ) to URL("http://textures.minecraft.net/texture/a08d71944cb941649c5bdabb698bf866ed0c2517b0fef3667fee4383f95e5f90"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.MASON
+        ) to URL("http://textures.minecraft.net/texture/26bc2d9cc319e843cc6d6920430fe2d9aeb1d17ba9989a4450460c10b793d78e"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.NITWIT
+        ) to URL("http://textures.minecraft.net/texture/a381c21916010024594bb862c9659b1677937b027599239c2ba6db3a794cd8cf"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.NONE
+        ) to URL("http://textures.minecraft.net/texture/649a46275dec0c247df986dfb4b351d289f0242b5fcd620daae113725720c7c9"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.SHEPHERD
+        ) to URL("http://textures.minecraft.net/texture/b613f70783086b6265aaf7d5290c7e8f018c77e30d7690ed68884324ff90d39d"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.TOOLSMITH
+        ) to URL("http://textures.minecraft.net/texture/8303903eeb9e4f88d4fe1490b46701a847ed23970181f34889bd38e89a034d87"),
+        Pair(
+            Villager.Type.JUNGLE,
+            Villager.Profession.WEAPONSMITH
+        ) to URL("http://textures.minecraft.net/texture/2a0c85bac8990b4a051017a4f478ded4540c32aab0d84833b705081ffb36c980"),
 
-        Pair(Villager.Type.SAVANNA, Villager.Profession.ARMORER) to URL("http://textures.minecraft.net/texture/9c245379093542564e5e13b068659381fad31960467425c982c2eae20263f60d"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.BUTCHER) to URL("http://textures.minecraft.net/texture/e809c16cfe6de25a083384dd66d7636b4a35dab4e54558a2acb19193a1b28737"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.CARTOGRAPHER) to URL("http://textures.minecraft.net/texture/14035aca26be97be8406406f1557fa990738770fe038194a4ab81ce0c8396c72"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.CLERIC) to URL("http://textures.minecraft.net/texture/80568c2762b2ae6585c23a26d85cfd308f1218355e1ecd3b11f59b4024fbb133"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.FARMER) to URL("http://textures.minecraft.net/texture/da1ba81283af8aff7bc61e0a02fa70122ad618f535db27ed76b494a098c80453"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.FISHERMAN) to URL("http://textures.minecraft.net/texture/de54659405e2a6383757f02efa7c5a9d4e19e554519e18e8da204808b1b565b9"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.FLETCHER) to URL("http://textures.minecraft.net/texture/fb4129222774c3fa5e80f75a31d8b4ee882c8ce61637b3d0a223de2e4e655b4"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.LEATHERWORKER) to URL("http://textures.minecraft.net/texture/432e68ecff8f695e8c10248544abf99c8d4507a39e8d586fcbe7e3b23aaa7dec"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.LIBRARIAN) to URL("http://textures.minecraft.net/texture/fd6722041a12e2d11b0ad0992ef815f49ccca562c9c167592d9b40652d5c8f1c"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.MASON) to URL("http://textures.minecraft.net/texture/9b88c239b80b0ac98d9761e8306dd2500be5f535437d5d6913b872cb04c3023c"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.NITWIT) to URL("http://textures.minecraft.net/texture/3f050534b6d7b72cb34857084c4ee1ee9ec36db85e81aff93e254dd97eb8a3b9"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.NONE) to URL("http://textures.minecraft.net/texture/d680ed3fa41eff171b30fee52452d3b89284957af5c5fd4aa61b8bf1f6f6bd2f"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.SHEPHERD) to URL("http://textures.minecraft.net/texture/ba72000c58ae1b8378ad9b8d1a8213904d916e04bf5e5d40849f3a1cf23183ce"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.TOOLSMITH) to URL("http://textures.minecraft.net/texture/1f5255094bbc358c13b3c6228391c773d69c6a9794226db1ab6c2d8045e882b9"),
-        Pair(Villager.Type.SAVANNA, Villager.Profession.WEAPONSMITH) to URL("http://textures.minecraft.net/texture/720429b3b9afa589086c1df68080dfcfe72824d65116d333856d19869b3f5f7a"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.ARMORER
+        ) to URL("http://textures.minecraft.net/texture/9c245379093542564e5e13b068659381fad31960467425c982c2eae20263f60d"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.BUTCHER
+        ) to URL("http://textures.minecraft.net/texture/e809c16cfe6de25a083384dd66d7636b4a35dab4e54558a2acb19193a1b28737"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.CARTOGRAPHER
+        ) to URL("http://textures.minecraft.net/texture/14035aca26be97be8406406f1557fa990738770fe038194a4ab81ce0c8396c72"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.CLERIC
+        ) to URL("http://textures.minecraft.net/texture/80568c2762b2ae6585c23a26d85cfd308f1218355e1ecd3b11f59b4024fbb133"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.FARMER
+        ) to URL("http://textures.minecraft.net/texture/da1ba81283af8aff7bc61e0a02fa70122ad618f535db27ed76b494a098c80453"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.FISHERMAN
+        ) to URL("http://textures.minecraft.net/texture/de54659405e2a6383757f02efa7c5a9d4e19e554519e18e8da204808b1b565b9"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.FLETCHER
+        ) to URL("http://textures.minecraft.net/texture/fb4129222774c3fa5e80f75a31d8b4ee882c8ce61637b3d0a223de2e4e655b4"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.LEATHERWORKER
+        ) to URL("http://textures.minecraft.net/texture/432e68ecff8f695e8c10248544abf99c8d4507a39e8d586fcbe7e3b23aaa7dec"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.LIBRARIAN
+        ) to URL("http://textures.minecraft.net/texture/fd6722041a12e2d11b0ad0992ef815f49ccca562c9c167592d9b40652d5c8f1c"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.MASON
+        ) to URL("http://textures.minecraft.net/texture/9b88c239b80b0ac98d9761e8306dd2500be5f535437d5d6913b872cb04c3023c"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.NITWIT
+        ) to URL("http://textures.minecraft.net/texture/3f050534b6d7b72cb34857084c4ee1ee9ec36db85e81aff93e254dd97eb8a3b9"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.NONE
+        ) to URL("http://textures.minecraft.net/texture/d680ed3fa41eff171b30fee52452d3b89284957af5c5fd4aa61b8bf1f6f6bd2f"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.SHEPHERD
+        ) to URL("http://textures.minecraft.net/texture/ba72000c58ae1b8378ad9b8d1a8213904d916e04bf5e5d40849f3a1cf23183ce"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.TOOLSMITH
+        ) to URL("http://textures.minecraft.net/texture/1f5255094bbc358c13b3c6228391c773d69c6a9794226db1ab6c2d8045e882b9"),
+        Pair(
+            Villager.Type.SAVANNA,
+            Villager.Profession.WEAPONSMITH
+        ) to URL("http://textures.minecraft.net/texture/720429b3b9afa589086c1df68080dfcfe72824d65116d333856d19869b3f5f7a"),
 
-        Pair(Villager.Type.SNOW, Villager.Profession.ARMORER) to URL("http://textures.minecraft.net/texture/d7595d772d85ced188bb6b05277dd909891a15a4bb87ca7b76346837f395226d"),
-        Pair(Villager.Type.SNOW, Villager.Profession.BUTCHER) to URL("http://textures.minecraft.net/texture/6a55f3d926573ad665ab845867106ffaaeef9421e68427ffb27177a07a771872"),
-        Pair(Villager.Type.SNOW, Villager.Profession.CARTOGRAPHER) to URL("http://textures.minecraft.net/texture/eab2ffa67277b05d8a5693c4fa6caab27714d9a9e56e46e21621a578bc71bbfd"),
-        Pair(Villager.Type.SNOW, Villager.Profession.CLERIC) to URL("http://textures.minecraft.net/texture/4e687acf909ef6d399532829b7d06a6b1606782fcc9857716e83247133052520"),
-        Pair(Villager.Type.SNOW, Villager.Profession.FARMER) to URL("http://textures.minecraft.net/texture/2c5e247e030e6070e28c9de1a4f472450521e573da4d259235e702bda0911a75"),
-        Pair(Villager.Type.SNOW, Villager.Profession.FISHERMAN) to URL("http://textures.minecraft.net/texture/fb3484cc9379d961c1ea02b628c3a0399de72b98387150791df7a4d41b8d12f2"),
-        Pair(Villager.Type.SNOW, Villager.Profession.FLETCHER) to URL("http://textures.minecraft.net/texture/1c8ab70cc5387901b290f7f81585ff19dad5e62564ad110b3e1da79df95e1c32"),
-        Pair(Villager.Type.SNOW, Villager.Profession.LEATHERWORKER) to URL("http://textures.minecraft.net/texture/b080df37c34a3ebf71106e195d5ea92339bc7038919e7d8267fb3d8695b23936"),
-        Pair(Villager.Type.SNOW, Villager.Profession.LIBRARIAN) to URL("http://textures.minecraft.net/texture/42077f30357d5db9ad008c410f33319236fa551c42e48b639922fdfde8ea75e1"),
-        Pair(Villager.Type.SNOW, Villager.Profession.MASON) to URL("http://textures.minecraft.net/texture/3345c618e4189d37cac464d7e801567e7d3a528210b4f3138ed9124cb60ddcb8"),
-        Pair(Villager.Type.SNOW, Villager.Profession.NITWIT) to URL("http://textures.minecraft.net/texture/5b2390688d67a56e286e3b46397ba19148f59f53935828875f5d1a99007c8896"),
-        Pair(Villager.Type.SNOW, Villager.Profession.NONE) to URL("http://textures.minecraft.net/texture/5de1fbe711a6812e53fd56280a8f7d9c3a5c9506678fdef8893418b0efac590a"),
-        Pair(Villager.Type.SNOW, Villager.Profession.SHEPHERD) to URL("http://textures.minecraft.net/texture/65f00d16fb6f7d3e96a508236c21c2a64797e182f03ba1f60e3c96537c17edb6"),
-        Pair(Villager.Type.SNOW, Villager.Profession.TOOLSMITH) to URL("http://textures.minecraft.net/texture/371a3043f97a71591ae5c65e32a3b61c860eac582774e5d9d92a97149d75b443"),
-        Pair(Villager.Type.SNOW, Villager.Profession.WEAPONSMITH) to URL("http://textures.minecraft.net/texture/fb68bb674a93c6b8d687c35200ada3afabaa940ddeede4a2d537e58dd741be1e"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.ARMORER
+        ) to URL("http://textures.minecraft.net/texture/d7595d772d85ced188bb6b05277dd909891a15a4bb87ca7b76346837f395226d"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.BUTCHER
+        ) to URL("http://textures.minecraft.net/texture/6a55f3d926573ad665ab845867106ffaaeef9421e68427ffb27177a07a771872"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.CARTOGRAPHER
+        ) to URL("http://textures.minecraft.net/texture/eab2ffa67277b05d8a5693c4fa6caab27714d9a9e56e46e21621a578bc71bbfd"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.CLERIC
+        ) to URL("http://textures.minecraft.net/texture/4e687acf909ef6d399532829b7d06a6b1606782fcc9857716e83247133052520"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.FARMER
+        ) to URL("http://textures.minecraft.net/texture/2c5e247e030e6070e28c9de1a4f472450521e573da4d259235e702bda0911a75"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.FISHERMAN
+        ) to URL("http://textures.minecraft.net/texture/fb3484cc9379d961c1ea02b628c3a0399de72b98387150791df7a4d41b8d12f2"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.FLETCHER
+        ) to URL("http://textures.minecraft.net/texture/1c8ab70cc5387901b290f7f81585ff19dad5e62564ad110b3e1da79df95e1c32"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.LEATHERWORKER
+        ) to URL("http://textures.minecraft.net/texture/b080df37c34a3ebf71106e195d5ea92339bc7038919e7d8267fb3d8695b23936"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.LIBRARIAN
+        ) to URL("http://textures.minecraft.net/texture/42077f30357d5db9ad008c410f33319236fa551c42e48b639922fdfde8ea75e1"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.MASON
+        ) to URL("http://textures.minecraft.net/texture/3345c618e4189d37cac464d7e801567e7d3a528210b4f3138ed9124cb60ddcb8"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.NITWIT
+        ) to URL("http://textures.minecraft.net/texture/5b2390688d67a56e286e3b46397ba19148f59f53935828875f5d1a99007c8896"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.NONE
+        ) to URL("http://textures.minecraft.net/texture/5de1fbe711a6812e53fd56280a8f7d9c3a5c9506678fdef8893418b0efac590a"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.SHEPHERD
+        ) to URL("http://textures.minecraft.net/texture/65f00d16fb6f7d3e96a508236c21c2a64797e182f03ba1f60e3c96537c17edb6"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.TOOLSMITH
+        ) to URL("http://textures.minecraft.net/texture/371a3043f97a71591ae5c65e32a3b61c860eac582774e5d9d92a97149d75b443"),
+        Pair(
+            Villager.Type.SNOW,
+            Villager.Profession.WEAPONSMITH
+        ) to URL("http://textures.minecraft.net/texture/fb68bb674a93c6b8d687c35200ada3afabaa940ddeede4a2d537e58dd741be1e"),
 
-        Pair(Villager.Type.SWAMP, Villager.Profession.ARMORER) to URL("http://textures.minecraft.net/texture/fac68897d7149ae67da8f4bad7ac63fc7cbdb94af52de0e4ad7b6db9f9cf349c"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.BUTCHER) to URL("http://textures.minecraft.net/texture/9f16584632160381b3c483e7174b2ee57c24276a187cfee0740a4a5c687ffad7"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.CARTOGRAPHER) to URL("http://textures.minecraft.net/texture/7f049dfa3fc4d2f72e9ea9b960f07d12369fe77a042ec70058f2aa6532135fa9"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.CLERIC) to URL("http://textures.minecraft.net/texture/1289af53f506cb52bc2050649e5a7adc1199fa4fc4f9fff1854da5eb60966b58"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.FARMER) to URL("http://textures.minecraft.net/texture/e873650410d8557a81a27b9b7d85587dd5d04fa71d2c0f6866ce48430252008e"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.FISHERMAN) to URL("http://textures.minecraft.net/texture/52b5f144e5dd24361f4c8f667c50804fe96d7a084f8ee4f2aad01aeb114fdbb"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.FLETCHER) to URL("http://textures.minecraft.net/texture/e9b9e280bfbc61b5a254d309dd083cc2722ed059c11a3a0eda9316bae7aaae15"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.LEATHERWORKER) to URL("http://textures.minecraft.net/texture/273a674834c72e5548f4a1f6a101c82a33ec6486264627f00d1e073d7a40d4d6"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.LIBRARIAN) to URL("http://textures.minecraft.net/texture/eab95bb3a3eebf0e1a211af8c82c7182ba048dfad31609cfe88bab2e08bd664f"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.MASON) to URL("http://textures.minecraft.net/texture/85296b3f412b2cc5eaa300cde852bb1179c6ddd51d7183865fba503f625c7b11"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.NITWIT) to URL("http://textures.minecraft.net/texture/617c44035c4cbac190367fe01bbe5be482c550c47ae4c5cf6054ca3d4ba391c4"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.NONE) to URL("http://textures.minecraft.net/texture/2a6e186a2b3d5d427172b74dbd4dacaf287e7e8ffd9bbd1a47ac4ece506ad2ff"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.SHEPHERD) to URL("http://textures.minecraft.net/texture/fe7e586b762e8f69f115c47c36681c24267d42b7aacb1638e894980f39280779"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.TOOLSMITH) to URL("http://textures.minecraft.net/texture/23fdd29514f3b99547e7aa1d2a3e561770c3d3cd5ab72bba94a74c8f5c2a6b09"),
-        Pair(Villager.Type.SWAMP, Villager.Profession.WEAPONSMITH) to URL("http://textures.minecraft.net/texture/62266ebadf7db4055becbcdc37541517996319c661aae981d30ac64b67877add"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.ARMORER
+        ) to URL("http://textures.minecraft.net/texture/fac68897d7149ae67da8f4bad7ac63fc7cbdb94af52de0e4ad7b6db9f9cf349c"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.BUTCHER
+        ) to URL("http://textures.minecraft.net/texture/9f16584632160381b3c483e7174b2ee57c24276a187cfee0740a4a5c687ffad7"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.CARTOGRAPHER
+        ) to URL("http://textures.minecraft.net/texture/7f049dfa3fc4d2f72e9ea9b960f07d12369fe77a042ec70058f2aa6532135fa9"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.CLERIC
+        ) to URL("http://textures.minecraft.net/texture/1289af53f506cb52bc2050649e5a7adc1199fa4fc4f9fff1854da5eb60966b58"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.FARMER
+        ) to URL("http://textures.minecraft.net/texture/e873650410d8557a81a27b9b7d85587dd5d04fa71d2c0f6866ce48430252008e"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.FISHERMAN
+        ) to URL("http://textures.minecraft.net/texture/52b5f144e5dd24361f4c8f667c50804fe96d7a084f8ee4f2aad01aeb114fdbb"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.FLETCHER
+        ) to URL("http://textures.minecraft.net/texture/e9b9e280bfbc61b5a254d309dd083cc2722ed059c11a3a0eda9316bae7aaae15"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.LEATHERWORKER
+        ) to URL("http://textures.minecraft.net/texture/273a674834c72e5548f4a1f6a101c82a33ec6486264627f00d1e073d7a40d4d6"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.LIBRARIAN
+        ) to URL("http://textures.minecraft.net/texture/eab95bb3a3eebf0e1a211af8c82c7182ba048dfad31609cfe88bab2e08bd664f"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.MASON
+        ) to URL("http://textures.minecraft.net/texture/85296b3f412b2cc5eaa300cde852bb1179c6ddd51d7183865fba503f625c7b11"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.NITWIT
+        ) to URL("http://textures.minecraft.net/texture/617c44035c4cbac190367fe01bbe5be482c550c47ae4c5cf6054ca3d4ba391c4"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.NONE
+        ) to URL("http://textures.minecraft.net/texture/2a6e186a2b3d5d427172b74dbd4dacaf287e7e8ffd9bbd1a47ac4ece506ad2ff"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.SHEPHERD
+        ) to URL("http://textures.minecraft.net/texture/fe7e586b762e8f69f115c47c36681c24267d42b7aacb1638e894980f39280779"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.TOOLSMITH
+        ) to URL("http://textures.minecraft.net/texture/23fdd29514f3b99547e7aa1d2a3e561770c3d3cd5ab72bba94a74c8f5c2a6b09"),
+        Pair(
+            Villager.Type.SWAMP,
+            Villager.Profession.WEAPONSMITH
+        ) to URL("http://textures.minecraft.net/texture/62266ebadf7db4055becbcdc37541517996319c661aae981d30ac64b67877add"),
 
-        Pair(Villager.Type.TAIGA, Villager.Profession.ARMORER) to URL("http://textures.minecraft.net/texture/70413a1422cc80d9dd5ebc89ef489256c7d288839aa37e3cc712eed9e979b9a1"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.BUTCHER) to URL("http://textures.minecraft.net/texture/444bca68151d59f22147e2eeb12343fe992715bd049b27943120b142790a6b9"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.CARTOGRAPHER) to URL("http://textures.minecraft.net/texture/ff2d5f830b4815c90bf4edd7c0c09bd7c915facd0c28ad0fd439f9b024c90b27"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.CLERIC) to URL("http://textures.minecraft.net/texture/8696f6c8557f10768cf086b2cef6fc0235aa5c191827ce0993c8e85b67c4272d"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.FARMER) to URL("http://textures.minecraft.net/texture/d0610924436e71266721e7c8cad7ecd6afd8d1d0ddfc24e38cf0788b620a0111"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.FISHERMAN) to URL("http://textures.minecraft.net/texture/302ed44fd0cc959f8b654fff7a27b2de6deb7a0ccf9445ad25ed0c7df3690ffb"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.FLETCHER) to URL("http://textures.minecraft.net/texture/af80cc4a5f1ba6e5a297de7bf4b367dbdcb9a6f46c6c68dab215d58d92ffcdd5"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.LEATHERWORKER) to URL("http://textures.minecraft.net/texture/14ceb35a0d1f8a5fd4a875f975d7a5b7bbc6ae87ef9e41e03dc4ff5098887222"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.LIBRARIAN) to URL("http://textures.minecraft.net/texture/84855647fc62ea9fdcebf03114acfbaae3ec547055324a752fbfa1238d329683"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.MASON) to URL("http://textures.minecraft.net/texture/3c6a3801f5846386e0c8d17147e6edb76b09d5e6024b1a74f431bd4397405a7c"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.NITWIT) to URL("http://textures.minecraft.net/texture/c61fbda493fe0ffb8fac6848829ccdb97501881b9ac8ba4696d7c613ccd3454f"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.NONE) to URL("http://textures.minecraft.net/texture/d58698448e316d4bdd833d9621c2db547b60cf5a5566a79f296fd7cc91e918d9"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.SHEPHERD) to URL("http://textures.minecraft.net/texture/40609d7220f9f44d54fdbff49dc50c2962663d9a270a3131d3cb67b0558a5016"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.TOOLSMITH) to URL("http://textures.minecraft.net/texture/e47e2aeffd122d2e64d9188fd8e6310ab26680b450515adfb890f396f6329a94"),
-        Pair(Villager.Type.TAIGA, Villager.Profession.WEAPONSMITH) to URL("http://textures.minecraft.net/texture/ffe54f0fdcb17d8883de2b8ff79090dee3e9d8cef5633f5a941c6cdd24f1dfb0")
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.ARMORER
+        ) to URL("http://textures.minecraft.net/texture/70413a1422cc80d9dd5ebc89ef489256c7d288839aa37e3cc712eed9e979b9a1"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.BUTCHER
+        ) to URL("http://textures.minecraft.net/texture/444bca68151d59f22147e2eeb12343fe992715bd049b27943120b142790a6b9"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.CARTOGRAPHER
+        ) to URL("http://textures.minecraft.net/texture/ff2d5f830b4815c90bf4edd7c0c09bd7c915facd0c28ad0fd439f9b024c90b27"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.CLERIC
+        ) to URL("http://textures.minecraft.net/texture/8696f6c8557f10768cf086b2cef6fc0235aa5c191827ce0993c8e85b67c4272d"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.FARMER
+        ) to URL("http://textures.minecraft.net/texture/d0610924436e71266721e7c8cad7ecd6afd8d1d0ddfc24e38cf0788b620a0111"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.FISHERMAN
+        ) to URL("http://textures.minecraft.net/texture/302ed44fd0cc959f8b654fff7a27b2de6deb7a0ccf9445ad25ed0c7df3690ffb"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.FLETCHER
+        ) to URL("http://textures.minecraft.net/texture/af80cc4a5f1ba6e5a297de7bf4b367dbdcb9a6f46c6c68dab215d58d92ffcdd5"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.LEATHERWORKER
+        ) to URL("http://textures.minecraft.net/texture/14ceb35a0d1f8a5fd4a875f975d7a5b7bbc6ae87ef9e41e03dc4ff5098887222"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.LIBRARIAN
+        ) to URL("http://textures.minecraft.net/texture/84855647fc62ea9fdcebf03114acfbaae3ec547055324a752fbfa1238d329683"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.MASON
+        ) to URL("http://textures.minecraft.net/texture/3c6a3801f5846386e0c8d17147e6edb76b09d5e6024b1a74f431bd4397405a7c"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.NITWIT
+        ) to URL("http://textures.minecraft.net/texture/c61fbda493fe0ffb8fac6848829ccdb97501881b9ac8ba4696d7c613ccd3454f"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.NONE
+        ) to URL("http://textures.minecraft.net/texture/d58698448e316d4bdd833d9621c2db547b60cf5a5566a79f296fd7cc91e918d9"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.SHEPHERD
+        ) to URL("http://textures.minecraft.net/texture/40609d7220f9f44d54fdbff49dc50c2962663d9a270a3131d3cb67b0558a5016"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.TOOLSMITH
+        ) to URL("http://textures.minecraft.net/texture/e47e2aeffd122d2e64d9188fd8e6310ab26680b450515adfb890f396f6329a94"),
+        Pair(
+            Villager.Type.TAIGA,
+            Villager.Profession.WEAPONSMITH
+        ) to URL("http://textures.minecraft.net/texture/ffe54f0fdcb17d8883de2b8ff79090dee3e9d8cef5633f5a941c6cdd24f1dfb0")
     )
 
     fun getHeadUrl(entity: Entity): URL? {
@@ -464,30 +1094,37 @@ object Heads {
                 val axolotl = entity as Axolotl
                 return axolotlHeadIndex[axolotl.variant]
             }
+
             EntityType.CAT -> {
                 val cat = entity as Cat
                 return catHeadIndex[cat.catType]
             }
+
             EntityType.HORSE -> {
                 val horse = entity as Horse
                 return horseHeadIndex[horse.color]
             }
+
             EntityType.MUSHROOM_COW -> {
                 val mooshroom = entity as MushroomCow
                 return mooshroomHeadIndex[mooshroom.variant]
             }
+
             EntityType.PARROT -> {
                 val parrot = entity as Parrot
                 return parrotHeadIndex[parrot.variant]
             }
+
             EntityType.RABBIT -> {
                 val rabbit = entity as Rabbit
                 return rabbitHeadIndex[rabbit.rabbitType]
             }
+
             EntityType.SHEEP -> {
                 val sheep = entity as Sheep
                 return sheepHeadIndex[sheep.color]
             }
+
             EntityType.TROPICAL_FISH -> {
                 val fish = entity as TropicalFish
                 val specialFishType = Fish.getSpecialFishType(fish)
@@ -496,30 +1133,37 @@ object Heads {
                 }
                 return specialFishHeadIndex[specialFishType]
             }
+
             EntityType.VILLAGER -> {
                 val villager = entity as Villager
-                return villagerHeadIndex[Pair(villager.villagerType,villager.profession)]
+                return villagerHeadIndex[Pair(villager.villagerType, villager.profession)]
             }
+
             EntityType.FOX -> {
                 val fox = entity as Fox
                 return foxHeadIndex[fox.foxType]
             }
+
             EntityType.LLAMA -> {
                 val llama = entity as Llama
                 return llamaHeadIndex[llama.color]
             }
+
             EntityType.PANDA -> {
                 val panda = entity as Panda
                 return pandaHeadIndex[panda.mainGene]
             }
+
             EntityType.TRADER_LLAMA -> {
                 val traderLlama = entity as TraderLlama
                 return traderLlamaHeadIndex[traderLlama.color]
             }
+
             EntityType.ZOMBIE_VILLAGER -> {
                 val zombieVillager = entity as ZombieVillager
-                return zombieVillagerHeadIndex[Pair(zombieVillager.villagerType,zombieVillager.villagerProfession)]
+                return zombieVillagerHeadIndex[Pair(zombieVillager.villagerType, zombieVillager.villagerProfession)]
             }
+
             else -> {
                 return null
             }
@@ -536,61 +1180,76 @@ object Heads {
                 val axolotl = entity as Axolotl
                 return "${entity.type.name} ${axolotl.variant}"
             }
+
             EntityType.CAT -> {
                 val cat = entity as Cat
                 return "${entity.type.name} ${cat.catType}"
             }
+
             EntityType.CREEPER -> {
                 return "${entity.type.name} Charged"
             }
+
             EntityType.HORSE -> {
                 val horse = entity as Horse
                 return "${entity.type.name} ${horse.color}"
             }
+
             EntityType.MUSHROOM_COW -> {
                 val mooshroom = entity as MushroomCow
                 return "${entity.type.name} ${mooshroom.variant}"
             }
+
             EntityType.PARROT -> {
                 val parrot = entity as Parrot
                 return "${entity.type.name} ${parrot.variant}"
             }
+
             EntityType.RABBIT -> {
                 val rabbit = entity as Rabbit
                 return "${entity.type.name} ${rabbit.rabbitType}"
             }
+
             EntityType.SHEEP -> {
                 val sheep = entity as Sheep
                 return "${entity.type.name} ${sheep.color}"
             }
+
             EntityType.TROPICAL_FISH -> {
                 val fish = entity as TropicalFish
                 return "${entity.type.name} ${fish.bodyColor} ${fish.patternColor} ${fish.pattern}"
             }
+
             EntityType.VILLAGER -> {
                 val villager = entity as Villager
                 return "${entity.type.name} ${villager.villagerType} ${villager.profession}"
             }
+
             EntityType.FOX -> {
                 val fox = entity as Fox
                 return "${entity.type.name} ${fox.foxType}"
             }
+
             EntityType.LLAMA -> {
                 val llama = entity as Llama
                 return "${entity.type.name} ${llama.color}"
             }
+
             EntityType.PANDA -> {
                 val panda = entity as Panda
                 return "${entity.type.name} ${panda.mainGene}"
             }
+
             EntityType.TRADER_LLAMA -> {
                 val traderLlama = entity as TraderLlama
                 return "${entity.type.name} ${traderLlama.color}"
             }
+
             EntityType.ZOMBIE_VILLAGER -> {
                 val zombieVillager = entity as ZombieVillager
                 return "${entity.type.name} ${zombieVillager.villagerType} ${zombieVillager.villagerProfession}"
             }
+
             else -> {
                 return null
             }
@@ -610,24 +1269,31 @@ object Heads {
             EntityType.AXOLOTL -> {
                 return axolotlHeadIndex[Axolotl.Variant.valueOf(split[1])]
             }
+
             EntityType.CAT -> {
                 return catHeadIndex[Cat.Type.valueOf(split[1])]
             }
+
             EntityType.HORSE -> {
                 return horseHeadIndex[Horse.Color.valueOf(split[1])]
             }
+
             EntityType.MUSHROOM_COW -> {
                 return mooshroomHeadIndex[MushroomCow.Variant.valueOf(split[1])]
             }
+
             EntityType.PARROT -> {
                 return parrotHeadIndex[Parrot.Variant.valueOf(split[1])]
             }
+
             EntityType.RABBIT -> {
                 return rabbitHeadIndex[Rabbit.Type.valueOf(split[1])]
             }
+
             EntityType.SHEEP -> {
                 return sheepHeadIndex[DyeColor.valueOf(split[1])]
             }
+
             EntityType.TROPICAL_FISH -> {
                 val bodyColor = DyeColor.valueOf(split[1])
                 val patternColor = DyeColor.valueOf(split[2])
@@ -638,28 +1304,35 @@ object Heads {
                 }
                 return specialFishHeadIndex[specialFishType]
             }
+
             EntityType.VILLAGER -> {
                 val villagerType = Villager.Type.valueOf(split[1])
                 val profession = Villager.Profession.valueOf(split[2])
                 return villagerHeadIndex[Pair(villagerType, profession)]
             }
+
             EntityType.FOX -> {
                 return foxHeadIndex[Fox.Type.valueOf(split[1])]
             }
+
             EntityType.LLAMA -> {
                 return llamaHeadIndex[Llama.Color.valueOf(split[1])]
             }
+
             EntityType.PANDA -> {
                 return pandaHeadIndex[Panda.Gene.valueOf(split[1])]
             }
+
             EntityType.TRADER_LLAMA -> {
                 return traderLlamaHeadIndex[Llama.Color.valueOf(split[1])]
             }
+
             EntityType.ZOMBIE_VILLAGER -> {
                 val villagerType = Villager.Type.valueOf(split[1])
                 val villagerProfession = Villager.Profession.valueOf(split[2])
                 return zombieVillagerHeadIndex[Pair(villagerType, villagerProfession)]
             }
+
             else -> {
                 return null
             }
@@ -667,7 +1340,7 @@ object Heads {
     }
 
     fun String.capitalizeWords(): String {
-        return this.lowercase().split( "_", " ").joinToString(" ") { it.replaceFirstChar { char -> char.titlecase() } }
+        return this.lowercase().split("_", " ").joinToString(" ") { it.replaceFirstChar { char -> char.titlecase() } }
     }
 
     fun getNameForEntity(entity: Entity): String? {
@@ -682,62 +1355,78 @@ object Heads {
                 val axolotl = entity as Axolotl
                 name = "${axolotl.variant} ${entity.type.name}"
             }
+
             EntityType.CAT -> {
                 val cat = entity as Cat
                 name = "${cat.catType} ${entity.type.name}"
             }
+
             EntityType.CREEPER -> {
                 name = "Charged ${entity.type.name}"
             }
+
             EntityType.HORSE -> {
                 val horse = entity as Horse
                 name = "${entity.type.name} ${horse.color}"
             }
+
             EntityType.MUSHROOM_COW -> {
                 val mooshroom = entity as MushroomCow
                 name = "${entity.type.name} ${mooshroom.variant}"
             }
+
             EntityType.PARROT -> {
                 val parrot = entity as Parrot
                 name = "${parrot.variant} ${entity.type.name}"
             }
+
             EntityType.RABBIT -> {
                 val rabbit = entity as Rabbit
                 name = "${rabbit.rabbitType}${entity.type.name}"
             }
+
             EntityType.SHEEP -> {
                 val sheep = entity as Sheep
                 name = "${sheep.color} ${entity.type.name}"
             }
+
             EntityType.TROPICAL_FISH -> {
                 val fish = entity as TropicalFish
                 val specialFishType = Fish.getSpecialFishType(fish)
-                name = specialFishType?.name ?: "${fish.bodyColor} ${fish.patternColor} ${fish.pattern} ${entity.type.name}"
+                name = specialFishType?.name
+                    ?: "${fish.bodyColor} ${fish.patternColor} ${fish.pattern} ${entity.type.name}"
             }
+
             EntityType.VILLAGER -> {
                 val villager = entity as Villager
                 name = "${villager.villagerType} ${villager.profession} ${entity.type.name}"
             }
+
             EntityType.FOX -> {
                 val fox = entity as Fox
                 name = "${fox.foxType} ${entity.type.name}"
             }
+
             EntityType.LLAMA -> {
                 val llama = entity as Llama
                 name = "${llama.color} ${entity.type.name}"
             }
+
             EntityType.PANDA -> {
                 val panda = entity as Panda
                 name = "${panda.mainGene} ${entity.type.name}"
             }
+
             EntityType.TRADER_LLAMA -> {
                 val traderLlama = entity as TraderLlama
                 name = "${traderLlama.color} ${entity.type.name}"
             }
+
             EntityType.ZOMBIE_VILLAGER -> {
                 val zombieVillager = entity as ZombieVillager
                 name = "${zombieVillager.villagerType} ${zombieVillager.villagerProfession} ${entity.type.name}"
             }
+
             else -> {}
         }
 
