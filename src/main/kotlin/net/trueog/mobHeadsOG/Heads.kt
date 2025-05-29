@@ -1399,7 +1399,12 @@ object Heads {
 
             EntityType.VILLAGER -> {
                 val villager = entity as Villager
-                name = "${villager.villagerType} ${villager.profession} ${entity.type.name}"
+                val professionName = if (villager.profession == Villager.Profession.NONE) {
+                    "UNEMPLOYED"
+                } else {
+                    villager.profession.name
+                }
+                name = "${villager.villagerType} $professionName ${entity.type.name}"
             }
 
             EntityType.FOX -> {
@@ -1424,7 +1429,12 @@ object Heads {
 
             EntityType.ZOMBIE_VILLAGER -> {
                 val zombieVillager = entity as ZombieVillager
-                name = "${zombieVillager.villagerType} ${zombieVillager.villagerProfession} ${entity.type.name}"
+                val professionName = if (zombieVillager.villagerProfession == Villager.Profession.NONE) {
+                    "UNEMPLOYED"
+                } else {
+                    zombieVillager.villagerProfession?.name
+                }
+                name = "${zombieVillager.villagerType} $professionName ${entity.type.name}"
             }
 
             else -> {}
@@ -1442,8 +1452,14 @@ object Heads {
 
         val entityType = EntityType.valueOf(split[0])
 
-        if (entityType != EntityType.TROPICAL_FISH) {
+        if (entityType != EntityType.TROPICAL_FISH && entityType != EntityType.VILLAGER && entityType != EntityType.ZOMBIE_VILLAGER) {
             return "${split.drop(1).joinToString(" ").capitalizeWords()} ${split[0].capitalizeWords()}"
+        }
+
+        if (entityType == EntityType.VILLAGER || entityType == EntityType.ZOMBIE_VILLAGER) {
+            return "${
+                split.drop(1).joinToString(" ").replace("NONE", "UNEMPLOYED").capitalizeWords()
+            } ${split[0].capitalizeWords()}"
         }
 
         val bodyColor = DyeColor.valueOf(split[1])
