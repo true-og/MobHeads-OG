@@ -8,7 +8,7 @@ plugins {
 
 val commitHash = Runtime
     .getRuntime()
-    .exec(arrayOf("git", "rev-parse", "--short", "HEAD"))
+    .exec(arrayOf("git", "rev-parse", "--short=10", "HEAD"))
     .let { process ->
         process.waitFor()
         val output = process.inputStream.use {
