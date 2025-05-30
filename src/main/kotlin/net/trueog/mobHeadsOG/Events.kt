@@ -5,6 +5,7 @@ import net.kyori.adventure.text.format.TextDecoration
 import org.bukkit.Bukkit.createProfile
 import org.bukkit.Material
 import org.bukkit.NamespacedKey
+import org.bukkit.entity.Ageable
 import org.bukkit.entity.Creeper
 import org.bukkit.entity.EntityType
 import org.bukkit.entity.Player
@@ -28,6 +29,10 @@ class Events : Listener {
     @EventHandler
     fun onEntityDeath(event: EntityDeathEvent) {
         if (event.entity.killer !is Player) {
+            return
+        }
+
+        if (!(event.entity as Ageable).isAdult) {
             return
         }
 
