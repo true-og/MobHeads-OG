@@ -22,7 +22,7 @@ atlassian-ide-plugin.xml
 # BlueJ files
 *.ctxt
 
-# Package Files #
+# Package Files
 *.jar
 *.war
 *.nar
@@ -30,6 +30,11 @@ atlassian-ide-plugin.xml
 *.zip
 *.tar.gz
 *.rar
+
+# Eclipse files
+.classpath
+.project
+.settings/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
