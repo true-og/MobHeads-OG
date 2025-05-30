@@ -70,6 +70,10 @@ tasks.processResources {
     filesMatching("plugin.yml") {
         expand(props)
     }
+
+    from("LICENSE") {
+        into("/")
+    }
 }
 
 tasks.withType<AbstractArchiveTask>().configureEach {
