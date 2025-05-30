@@ -3,12 +3,12 @@ import java.io.BufferedReader
 plugins {
     kotlin("jvm") version "2.1.21"
     id("com.gradleup.shadow") version "8.3.5"
-	id("eclipse")
+    eclipse
 }
 
 val commitHash = Runtime
     .getRuntime()
-    .exec(arrayOf("git", "rev-parse", "--short", "HEAD"))
+    .exec(arrayOf("git", "rev-parse", "--short=10", "HEAD"))
     .let { process ->
         process.waitFor()
         val output = process.inputStream.use {
@@ -69,5 +69,21 @@ tasks.processResources {
     filteringCharset = "UTF-8"
     filesMatching("plugin.yml") {
         expand(props)
+    }
+
+    from("LICENSE") {
+        into("/")
+    }
+}
+
+tasks.withType<AbstractArchiveTask>().configureEach {
+    isPreserveFileTimestamps = false
+    isReproducibleFileOrder = true
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+        vendor = JvmVendorSpec.GRAAL_VM
     }
 }
