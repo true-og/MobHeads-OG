@@ -48,7 +48,7 @@ kotlin {
 }
 
 tasks.build {
-    dependsOn("shadowJar")
+    dependsOn(tasks.shadowJar)
 }
 
 tasks.jar {
@@ -83,7 +83,7 @@ tasks.withType<AbstractArchiveTask>().configureEach {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+        languageVersion = JavaLanguageVersion.of(17)
         vendor = JvmVendorSpec.GRAAL_VM
     }
 }
