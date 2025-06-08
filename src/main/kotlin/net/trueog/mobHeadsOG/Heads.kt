@@ -1178,76 +1178,76 @@ object Heads {
         when (entity.type) {
             EntityType.AXOLOTL -> {
                 val axolotl = entity as Axolotl
-                return "${entity.type.name} ${axolotl.variant}"
+                return "${axolotl.variant} ${entity.type.name}"
             }
 
             EntityType.CAT -> {
                 val cat = entity as Cat
-                return "${entity.type.name} ${cat.catType}"
+                return "${cat.catType} ${entity.type.name}"
             }
 
             EntityType.CREEPER -> {
-                return "${entity.type.name} Charged"
+                return "Charged ${entity.type.name}"
             }
 
             EntityType.HORSE -> {
                 val horse = entity as Horse
-                return "${entity.type.name} ${horse.color}"
+                return "${horse.color} ${entity.type.name}"
             }
 
             EntityType.MUSHROOM_COW -> {
                 val mooshroom = entity as MushroomCow
-                return "${entity.type.name} ${mooshroom.variant}"
+                return "${mooshroom.variant} ${entity.type.name}"
             }
 
             EntityType.PARROT -> {
                 val parrot = entity as Parrot
-                return "${entity.type.name} ${parrot.variant}"
+                return "${parrot.variant} ${entity.type.name}"
             }
 
             EntityType.RABBIT -> {
                 val rabbit = entity as Rabbit
-                return "${entity.type.name} ${rabbit.rabbitType}"
+                return "${rabbit.rabbitType} ${entity.type.name}"
             }
 
             EntityType.SHEEP -> {
                 val sheep = entity as Sheep
-                return "${entity.type.name} ${sheep.color}"
+                return "${sheep.color} ${entity.type.name}"
             }
 
             EntityType.TROPICAL_FISH -> {
                 val fish = entity as TropicalFish
-                return "${entity.type.name} ${fish.bodyColor} ${fish.patternColor} ${fish.pattern}"
+                return "${fish.bodyColor} ${fish.patternColor} ${fish.pattern} ${entity.type.name}"
             }
 
             EntityType.VILLAGER -> {
                 val villager = entity as Villager
-                return "${entity.type.name} ${villager.villagerType} ${villager.profession}"
+                return "${villager.villagerType} ${villager.profession} ${entity.type.name}"
             }
 
             EntityType.FOX -> {
                 val fox = entity as Fox
-                return "${entity.type.name} ${fox.foxType}"
+                return "${fox.foxType} ${entity.type.name}"
             }
 
             EntityType.LLAMA -> {
                 val llama = entity as Llama
-                return "${entity.type.name} ${llama.color}"
+                return "${llama.color} ${entity.type.name}"
             }
 
             EntityType.PANDA -> {
                 val panda = entity as Panda
-                return "${entity.type.name} ${panda.mainGene}"
+                return "${panda.mainGene} ${entity.type.name}"
             }
 
             EntityType.TRADER_LLAMA -> {
                 val traderLlama = entity as TraderLlama
-                return "${entity.type.name} ${traderLlama.color}"
+                return "${traderLlama.color} ${entity.type.name}"
             }
 
             EntityType.ZOMBIE_VILLAGER -> {
                 val zombieVillager = entity as ZombieVillager
-                return "${entity.type.name} ${zombieVillager.villagerType} ${zombieVillager.villagerProfession}"
+                return "${zombieVillager.villagerType} ${zombieVillager.villagerProfession} ${entity.type.name}"
             }
 
             else -> {
@@ -1259,7 +1259,7 @@ object Heads {
     fun getHeadUrlWithStringRepresentation(stringRepresentation: String): URL? {
         val split = stringRepresentation.split(" ")
 
-        val entityType = EntityType.valueOf(split[0])
+        val entityType = EntityType.valueOf(split.last())
 
         if (entityType !in mobsWithVariants) {
             return headIndex[entityType]
@@ -1450,16 +1450,14 @@ object Heads {
     fun getNameForEntity(stringRepresentation: String): String? {
         val split = stringRepresentation.split(" ")
 
-        val entityType = EntityType.valueOf(split[0])
+        val entityType = EntityType.valueOf(split.last())
 
         if (entityType != EntityType.TROPICAL_FISH && entityType != EntityType.VILLAGER && entityType != EntityType.ZOMBIE_VILLAGER) {
-            return "${split.drop(1).joinToString(" ").titleCase()}${if (split.drop(1).isNotEmpty()) " " else ""}${split[0].titleCase()}"
+            return stringRepresentation.titleCase()
         }
 
         if (entityType == EntityType.VILLAGER || entityType == EntityType.ZOMBIE_VILLAGER) {
-            return "${
-                split.drop(1).joinToString(" ").replace("NONE", "UNEMPLOYED").titleCase()
-            } ${split[0].titleCase()}"
+            return stringRepresentation.replace("NONE", "UNEMPLOYED").titleCase()
         }
 
         val bodyColor = DyeColor.valueOf(split[1])
@@ -1467,6 +1465,6 @@ object Heads {
         val pattern = TropicalFish.Pattern.valueOf(split[3])
         val specialFishType = Fish.getSpecialFishType(bodyColor, patternColor, pattern)
         return specialFishType?.name?.titleCase()
-            ?: "${split.drop(1).joinToString(" ").titleCase()} ${split[0].titleCase()}"
+            ?: return stringRepresentation.titleCase()
     }
 }
