@@ -1171,7 +1171,7 @@ object Heads {
     }
 
     fun toStringRepresentation(entity: Entity): String? {
-        if (entity.type !in mobsWithVariants && entity.type != EntityType.CREEPER) {
+        if (entity.type !in mobsWithVariants) {
             return entity.type.name
         }
 
@@ -1184,10 +1184,6 @@ object Heads {
             EntityType.CAT -> {
                 val cat = entity as Cat
                 return "${cat.catType} ${entity.type.name}"
-            }
-
-            EntityType.CREEPER -> {
-                return "Charged ${entity.type.name}"
             }
 
             EntityType.HORSE -> {
