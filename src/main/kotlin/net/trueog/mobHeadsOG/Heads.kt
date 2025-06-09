@@ -1367,12 +1367,12 @@ object Heads {
 
             EntityType.HORSE -> {
                 val horse = entity as Horse
-                name = "${entity.type.name} ${horse.color}"
+                name = "${horse.color} ${entity.type.name}"
             }
 
             EntityType.MUSHROOM_COW -> {
                 val mooshroom = entity as MushroomCow
-                name = "${entity.type.name} ${mooshroom.variant}"
+                name = "${mooshroom.variant} ${entity.type.name}"
             }
 
             EntityType.PARROT -> {
