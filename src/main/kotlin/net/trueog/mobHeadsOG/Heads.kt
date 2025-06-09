@@ -1267,37 +1267,37 @@ object Heads {
 
         when (entityType) {
             EntityType.AXOLOTL -> {
-                return axolotlHeadIndex[Axolotl.Variant.valueOf(split[1])]
+                return axolotlHeadIndex[Axolotl.Variant.valueOf(split[0])]
             }
 
             EntityType.CAT -> {
-                return catHeadIndex[Cat.Type.valueOf(split[1])]
+                return catHeadIndex[Cat.Type.valueOf(split[0])]
             }
 
             EntityType.HORSE -> {
-                return horseHeadIndex[Horse.Color.valueOf(split[1])]
+                return horseHeadIndex[Horse.Color.valueOf(split[0])]
             }
 
             EntityType.MUSHROOM_COW -> {
-                return mooshroomHeadIndex[MushroomCow.Variant.valueOf(split[1])]
+                return mooshroomHeadIndex[MushroomCow.Variant.valueOf(split[0])]
             }
 
             EntityType.PARROT -> {
-                return parrotHeadIndex[Parrot.Variant.valueOf(split[1])]
+                return parrotHeadIndex[Parrot.Variant.valueOf(split[0])]
             }
 
             EntityType.RABBIT -> {
-                return rabbitHeadIndex[Rabbit.Type.valueOf(split[1])]
+                return rabbitHeadIndex[Rabbit.Type.valueOf(split[0])]
             }
 
             EntityType.SHEEP -> {
-                return sheepHeadIndex[DyeColor.valueOf(split[1])]
+                return sheepHeadIndex[DyeColor.valueOf(split[0])]
             }
 
             EntityType.TROPICAL_FISH -> {
-                val bodyColor = DyeColor.valueOf(split[1])
-                val patternColor = DyeColor.valueOf(split[2])
-                val pattern = TropicalFish.Pattern.valueOf(split[3])
+                val bodyColor = DyeColor.valueOf(split[0])
+                val patternColor = DyeColor.valueOf(split[1])
+                val pattern = TropicalFish.Pattern.valueOf(split[2])
                 val specialFishType = Fish.getSpecialFishType(bodyColor, patternColor, pattern)
                 if (specialFishType == null) {
                     return headIndex[entityType]
@@ -1306,30 +1306,30 @@ object Heads {
             }
 
             EntityType.VILLAGER -> {
-                val villagerType = Villager.Type.valueOf(split[1])
-                val profession = Villager.Profession.valueOf(split[2])
+                val villagerType = Villager.Type.valueOf(split[0])
+                val profession = Villager.Profession.valueOf(split[1])
                 return villagerHeadIndex[Pair(villagerType, profession)]
             }
 
             EntityType.FOX -> {
-                return foxHeadIndex[Fox.Type.valueOf(split[1])]
+                return foxHeadIndex[Fox.Type.valueOf(split[0])]
             }
 
             EntityType.LLAMA -> {
-                return llamaHeadIndex[Llama.Color.valueOf(split[1])]
+                return llamaHeadIndex[Llama.Color.valueOf(split[0])]
             }
 
             EntityType.PANDA -> {
-                return pandaHeadIndex[Panda.Gene.valueOf(split[1])]
+                return pandaHeadIndex[Panda.Gene.valueOf(split[0])]
             }
 
             EntityType.TRADER_LLAMA -> {
-                return traderLlamaHeadIndex[Llama.Color.valueOf(split[1])]
+                return traderLlamaHeadIndex[Llama.Color.valueOf(split[0])]
             }
 
             EntityType.ZOMBIE_VILLAGER -> {
-                val villagerType = Villager.Type.valueOf(split[1])
-                val villagerProfession = Villager.Profession.valueOf(split[2])
+                val villagerType = Villager.Type.valueOf(split[0])
+                val villagerProfession = Villager.Profession.valueOf(split[1])
                 return zombieVillagerHeadIndex[Pair(villagerType, villagerProfession)]
             }
 
