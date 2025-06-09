@@ -1372,7 +1372,7 @@ object Heads {
 
             EntityType.MUSHROOM_COW -> {
                 val mooshroom = entity as MushroomCow
-                name = "${mooshroom.variant} ${entity.type.name}"
+                name = "${mooshroom.variant} Mooshroom"
             }
 
             EntityType.PARROT -> {
@@ -1452,8 +1452,12 @@ object Heads {
 
         val entityType = EntityType.valueOf(split.last())
 
-        if (entityType != EntityType.TROPICAL_FISH && entityType != EntityType.VILLAGER && entityType != EntityType.ZOMBIE_VILLAGER) {
+        if (entityType != EntityType.TROPICAL_FISH && entityType != EntityType.VILLAGER && entityType != EntityType.ZOMBIE_VILLAGER && entityType != EntityType.MUSHROOM_COW) {
             return stringRepresentation.titleCase()
+        }
+
+        if (entityType == EntityType.MUSHROOM_COW) {
+            return stringRepresentation.replace("MUSHROOM_COW", "MOOSHROOM").titleCase()
         }
 
         if (entityType == EntityType.VILLAGER || entityType == EntityType.ZOMBIE_VILLAGER) {
