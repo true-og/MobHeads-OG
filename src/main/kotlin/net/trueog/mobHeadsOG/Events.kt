@@ -32,7 +32,7 @@ class Events : Listener {
             return
         }
 
-        if (!(event.entity as Ageable).isAdult) {
+        if (event.entity is Ageable && !(event.entity as Ageable).isAdult) {
             return
         }
 
