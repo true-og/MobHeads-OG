@@ -26,7 +26,7 @@ object Heads {
         EntityType.ENDERMITE to URL("http://textures.minecraft.net/texture/8c6b65c22b4465ba6793b2195cd5084ce83b88dca6e55eb9484540acd7352a50"),
         EntityType.EVOKER to URL("http://textures.minecraft.net/texture/390fbd88f659d3963c68cbbcb7c7121d8195a8be65bbd2bf1257d1f69bccc0c7"),
 //        EntityType.FOX to URL("http://textures.minecraft.net/texture/d7e0043111bc57090856259155571c7906e707046df041b8b572704c451fcd82"),
-        EntityType.FROG to URL("http://textures.minecraft.net/texture/76877893e920ff5dfa4b5fbd14dabee2e6308a6f97c3a19b08e241a29eb9a5c3"),
+//        EntityType.FROG to URL("http://textures.minecraft.net/texture/76877893e920ff5dfa4b5fbd14dabee2e6308a6f97c3a19b08e241a29eb9a5c3"),
         EntityType.GHAST to URL("http://textures.minecraft.net/texture/c53de31a2d0041a6ef75bf7a6c8468464db1aaa6201ebb1a6013edb2245c7607"),
         EntityType.GLOW_SQUID to URL("http://textures.minecraft.net/texture/4b2e9b6581fed48a99e0323091ad5c3c326cda20073e28a902a0373f7382b59f"),
         EntityType.GOAT to URL("http://textures.minecraft.net/texture/87473e055df6e7fd98664e9fdb63675f088106305d744024a41bb358918a142b"),
@@ -95,7 +95,8 @@ object Heads {
         EntityType.LLAMA,
         EntityType.PANDA,
         EntityType.TRADER_LLAMA,
-        EntityType.ZOMBIE_VILLAGER
+        EntityType.ZOMBIE_VILLAGER,
+        EntityType.FROG
     )
 
     private val axolotlHeadIndex = mapOf(
@@ -1084,6 +1085,12 @@ object Heads {
         ) to URL("http://textures.minecraft.net/texture/ffe54f0fdcb17d8883de2b8ff79090dee3e9d8cef5633f5a941c6cdd24f1dfb0")
     )
 
+    private val frogHeadIndex = mapOf(
+        Frog.Variant.TEMPERATE to URL("http://textures.minecraft.net/texture/23ce6f9998ed2da757d1e6372f04efa20e57dfc17c3a06478657bbdf51c2f2a2"), // DorkOrc
+        Frog.Variant.WARM to URL("http://textures.minecraft.net/texture/f77314fa038ec31357845a93274b4dc884124686728ffe0ded9c35466aca0aab"), // DorkOrc
+        Frog.Variant.COLD to URL("http://textures.minecraft.net/texture/ce62e8a048d040eb0533ba26a866cd9c2d0928c931c50b4482ac3a3261fab6f0") // DorkOrc
+    )
+
     fun getHeadUrl(entity: Entity): URL? {
         if (entity.type !in mobsWithVariants) {
             return headIndex[entity.type]
@@ -1162,6 +1169,11 @@ object Heads {
             EntityType.ZOMBIE_VILLAGER -> {
                 val zombieVillager = entity as ZombieVillager
                 return zombieVillagerHeadIndex[Pair(zombieVillager.villagerType, zombieVillager.villagerProfession)]
+            }
+
+            EntityType.FROG -> {
+                val frog = entity as Frog
+                return frogHeadIndex[frog.variant]
             }
 
             else -> {
@@ -1246,6 +1258,11 @@ object Heads {
                 return "${zombieVillager.villagerType} ${zombieVillager.villagerProfession} ${entity.type.name}"
             }
 
+            EntityType.FROG -> {
+                val frog = entity as Frog
+                return "${frog.variant} ${entity.type.name}"
+            }
+
             else -> {
                 return null
             }
@@ -1327,6 +1344,10 @@ object Heads {
                 val villagerType = Villager.Type.valueOf(split[0])
                 val villagerProfession = Villager.Profession.valueOf(split[1])
                 return zombieVillagerHeadIndex[Pair(villagerType, villagerProfession)]
+            }
+
+            EntityType.FROG -> {
+                return frogHeadIndex[Frog.Variant.valueOf(split[0])]
             }
 
             else -> {
@@ -1431,6 +1452,11 @@ object Heads {
                     zombieVillager.villagerProfession?.name
                 }
                 name = "${zombieVillager.villagerType} $professionName ${entity.type.name}"
+            }
+
+            EntityType.FROG -> {
+                val frog = entity as Frog
+                name = "${frog.variant} ${entity.type.name}"
             }
 
             else -> {}
