@@ -18,7 +18,6 @@ class Config {
             MobHeadsOG.plugin.saveDefaultConfig()
         }
         val config = YamlConfiguration.loadConfiguration(file)
-        config.save(file)
 
         val dropChancesSection = config.getConfigurationSection("dropChances")
         if (dropChancesSection == null) {
