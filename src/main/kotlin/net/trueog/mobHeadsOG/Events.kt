@@ -1,5 +1,6 @@
 package net.trueog.mobHeadsOG
 
+import java.util.*
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.TextDecoration
 import org.bukkit.Bukkit.createProfile
@@ -20,7 +21,6 @@ import org.bukkit.inventory.meta.SkullMeta
 import org.bukkit.metadata.FixedMetadataValue
 import org.bukkit.persistence.PersistentDataType
 import org.bukkit.profile.PlayerTextures
-import java.util.*
 
 class Events : Listener {
     val customMobHeadKey = NamespacedKey(MobHeadsOG.plugin, "customMobHead")
@@ -36,11 +36,12 @@ class Events : Listener {
             return
         }
 
-        val dropChance = if (event.entityType == EntityType.CREEPER && (event.entity as Creeper).isPowered) {
-            MobHeadsOG.config.chargedCreeperChance
-        } else {
-            MobHeadsOG.config.dropChances[event.entityType]
-        }
+        val dropChance =
+            if (event.entityType == EntityType.CREEPER && (event.entity as Creeper).isPowered) {
+                MobHeadsOG.config.chargedCreeperChance
+            } else {
+                MobHeadsOG.config.dropChances[event.entityType]
+            }
 
         if (dropChance == null) {
             return
@@ -92,9 +93,7 @@ class Events : Listener {
 
         headMeta.persistentDataContainer.set(customMobHeadKey, PersistentDataType.STRING, stringRepresentation)
         headMeta.displayName(
-            Component.text("${Heads.getNameForEntity(event.entity)} Head").decoration(
-                TextDecoration.ITALIC, false
-            )
+            Component.text("${Heads.getNameForEntity(event.entity)} Head").decoration(TextDecoration.ITALIC, false)
         )
         textures.setSkin(skinUrl, PlayerTextures.SkinModel.CLASSIC)
         profile.setTextures(textures)
@@ -146,16 +145,13 @@ class Events : Listener {
 
         headMeta.persistentDataContainer.set(customMobHeadKey, PersistentDataType.STRING, customMobHeadData)
         headMeta.displayName(
-            Component.text("${Heads.getNameForEntity(customMobHeadData)} Head").decoration(
-                TextDecoration.ITALIC, false
-            )
+            Component.text("${Heads.getNameForEntity(customMobHeadData)} Head").decoration(TextDecoration.ITALIC, false)
         )
         textures.setSkin(skinUrl, PlayerTextures.SkinModel.CLASSIC)
         profile.setTextures(textures)
 
         headMeta.playerProfile = profile
         head.itemMeta = headMeta
-
 
         event.block.world.dropItemNaturally(event.block.location, head)
         event.block.type = Material.AIR

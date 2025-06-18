@@ -9,13 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin
 class MobHeadsOG : JavaPlugin() {
     companion object {
         lateinit var plugin: MobHeadsOG
-        val mm = MiniMessage.builder()
-            .tags(
-                TagResolver.builder()
-                    .resolver(StandardTags.color())
-                    .build()
-            )
-            .build()
+        val mm = MiniMessage.builder().tags(TagResolver.builder().resolver(StandardTags.color()).build()).build()
         lateinit var config: Config
     }
 
