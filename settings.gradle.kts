@@ -1,5 +1,12 @@
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+rootProject.name = "MobHeads-OG"
+
+// Run the bootstrap at configuration time.
+val process = ProcessBuilder("sh", "bootstrap.sh").directory(rootDir).start()
+
+val exitValue = process.waitFor()
+
+if (exitValue != 0) {
+    throw GradleException("bootstrap.sh failed with exit code $exitValue")
 }
 
-rootProject.name = "MobHeads-OG"
+include("libs:Utilities-OG")
