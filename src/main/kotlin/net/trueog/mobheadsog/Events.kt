@@ -81,15 +81,9 @@ class Events : Listener {
         val profile = createProfile(nullUuid)
         profile.clearProperties()
         val textures = profile.textures
-        val skinUrl = Heads.getHeadUrl(event.entity)
-        if (skinUrl == null) {
-            return
-        }
+        val skinUrl = Heads.getHeadUrl(event.entity) ?: return
 
-        val stringRepresentation = Heads.toStringRepresentation(event.entity)
-        if (stringRepresentation == null) {
-            return
-        }
+        val stringRepresentation = Heads.toStringRepresentation(event.entity) ?: return
 
         headMeta.persistentDataContainer.set(customMobHeadKey, PersistentDataType.STRING, stringRepresentation)
         headMeta.displayName(
@@ -133,10 +127,7 @@ class Events : Listener {
 
         val profile = createProfile(nullUuid)
         val textures = profile.textures
-        val skinUrl = Heads.getHeadUrlWithStringRepresentation(customMobHeadData)
-        if (skinUrl == null) {
-            return
-        }
+        val skinUrl = Heads.getHeadUrlWithStringRepresentation(customMobHeadData) ?: return
 
         headMeta.persistentDataContainer.set(customMobHeadKey, PersistentDataType.STRING, customMobHeadData)
         headMeta.displayName(

@@ -1612,10 +1612,7 @@ object Heads {
 
             EntityType.TROPICAL_FISH -> {
                 val fish = entity as TropicalFish
-                val specialFishType = Fish.getSpecialFishType(fish)
-                if (specialFishType == null) {
-                    return headIndex[fish.type]
-                }
+                val specialFishType = Fish.getSpecialFishType(fish) ?: return headIndex[fish.type]
                 return specialFishHeadIndex[specialFishType]
             }
 
@@ -1789,10 +1786,8 @@ object Heads {
                 val bodyColor = DyeColor.valueOf(split[0])
                 val patternColor = DyeColor.valueOf(split[1])
                 val pattern = TropicalFish.Pattern.valueOf(split[2])
-                val specialFishType = Fish.getSpecialFishType(bodyColor, patternColor, pattern)
-                if (specialFishType == null) {
-                    return headIndex[entityType]
-                }
+                val specialFishType =
+                    Fish.getSpecialFishType(bodyColor, patternColor, pattern) ?: return headIndex[entityType]
                 return specialFishHeadIndex[specialFishType]
             }
 
