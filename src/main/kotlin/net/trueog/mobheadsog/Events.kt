@@ -106,12 +106,7 @@ class Events : Listener {
     @EventHandler
     fun onBlockPlace(event: BlockPlaceEvent) {
         val customMobHeadData =
-            event.itemInHand.itemMeta.persistentDataContainer.get(customMobHeadKey, PersistentDataType.STRING)
-        if (customMobHeadData == null) {
-            return
-        }
-
-        customMobHeadData == "CREEPER"
+            event.itemInHand.itemMeta.persistentDataContainer.get(customMobHeadKey, PersistentDataType.STRING) ?: return
 
         event.block.setMetadata("customMobHead", FixedMetadataValue(MobHeadsOG.plugin, customMobHeadData))
     }
@@ -170,9 +165,6 @@ class Events : Listener {
 
         val customMobHeadData = metadata.first().asString()
         val name = Heads.getNameForEntity(customMobHeadData)
-        if (name == null) {
-            return
-        }
 
         event.player.sendActionBar(MobHeadsOG.mm.deserialize("<yellow>$name Head"))
     }

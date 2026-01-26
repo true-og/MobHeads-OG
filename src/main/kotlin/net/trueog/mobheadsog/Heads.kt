@@ -1950,7 +1950,7 @@ object Heads {
         return name.titleCase()
     }
 
-    fun getNameForEntity(stringRepresentation: String): String? {
+    fun getNameForEntity(stringRepresentation: String): String {
         val split = stringRepresentation.split(" ")
 
         val entityType = EntityType.valueOf(split.last())
