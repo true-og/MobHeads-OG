@@ -1,4 +1,4 @@
-package net.trueog.mobHeadsOG
+package net.trueog.mobheadsog
 
 import java.util.*
 import net.kyori.adventure.text.Component

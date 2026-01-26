@@ -1,4 +1,4 @@
-package net.trueog.mobHeadsOG
+package net.trueog.mobheadsog
 
 import java.io.File
 import org.bukkit.configuration.file.YamlConfiguration

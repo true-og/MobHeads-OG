@@ -1,7 +1,7 @@
-package net.trueog.mobHeadsOG
+package net.trueog.mobheadsog
 
 import java.net.URL
-import net.trueog.mobHeadsOG.Fish.SpecialFishType
+import net.trueog.mobheadsog.Fish.SpecialFishType
 import org.bukkit.DyeColor
 import org.bukkit.entity.*
 

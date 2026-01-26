@@ -1,4 +1,4 @@
-package net.trueog.mobHeadsOG
+package net.trueog.mobheadsog
 
 import org.bukkit.DyeColor
 import org.bukkit.entity.TropicalFish
