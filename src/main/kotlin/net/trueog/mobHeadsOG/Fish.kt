@@ -30,233 +30,45 @@ object Fish {
         YELLOW_TANG, // Yellow Flopper
     }
 
-    fun getSpecialFishType(fish: TropicalFish): SpecialFishType? {
-        if (
-            fish.bodyColor == DyeColor.ORANGE &&
-                fish.patternColor == DyeColor.GRAY &&
-                fish.pattern === TropicalFish.Pattern.STRIPEY
-        ) {
-            return SpecialFishType.ANEMONE
-        } else if (
-            fish.bodyColor == DyeColor.GRAY &&
-                fish.patternColor == DyeColor.GRAY &&
-                fish.pattern == TropicalFish.Pattern.FLOPPER
-        ) {
-            return SpecialFishType.BLACK_TANG
-        } else if (
-            fish.bodyColor == DyeColor.GRAY &&
-                fish.patternColor == DyeColor.BLUE &&
-                fish.pattern == TropicalFish.Pattern.FLOPPER
-        ) {
-            return SpecialFishType.BLUE_TANG
-        } else if (
-            fish.bodyColor == DyeColor.WHITE &&
-                fish.patternColor == DyeColor.GRAY &&
-                fish.pattern == TropicalFish.Pattern.CLAYFISH
-        ) {
-            return SpecialFishType.BUTTERFLYFISH
-        } else if (
-            fish.bodyColor == DyeColor.BLUE &&
-                fish.patternColor == DyeColor.GRAY &&
-                fish.pattern == TropicalFish.Pattern.SUNSTREAK
-        ) {
-            return SpecialFishType.CICHLID
-        } else if (
-            fish.bodyColor == DyeColor.ORANGE &&
-                fish.patternColor == DyeColor.WHITE &&
-                fish.pattern == TropicalFish.Pattern.KOB
-        ) {
-            return SpecialFishType.CLOWNFISH
-        } else if (
-            fish.bodyColor == DyeColor.PINK &&
-                fish.patternColor == DyeColor.LIGHT_BLUE &&
-                fish.pattern == TropicalFish.Pattern.SPOTTY
-        ) {
-            return SpecialFishType.COTTON_CANDY_BETTA
-        } else if (
-            fish.bodyColor == DyeColor.PURPLE &&
-                fish.patternColor == DyeColor.YELLOW &&
-                fish.pattern == TropicalFish.Pattern.BLOCKFISH
-        ) {
-            return SpecialFishType.DOTTYBACK
-        } else if (
-            fish.bodyColor == DyeColor.WHITE &&
-                fish.patternColor == DyeColor.RED &&
-                fish.pattern == TropicalFish.Pattern.CLAYFISH
-        ) {
-            return SpecialFishType.EMPEROR_RED_SNAPPER
-        } else if (
-            fish.bodyColor == DyeColor.WHITE &&
-                fish.patternColor == DyeColor.YELLOW &&
-                fish.pattern == TropicalFish.Pattern.SPOTTY
-        ) {
-            return SpecialFishType.GOATFISH
-        } else if (
-            fish.bodyColor == DyeColor.WHITE &&
-                fish.patternColor == DyeColor.GRAY &&
-                fish.pattern == TropicalFish.Pattern.GLITTER
-        ) {
-            return SpecialFishType.MOORISH_IDOL
-        } else if (
-            fish.bodyColor == DyeColor.WHITE &&
-                fish.patternColor == DyeColor.ORANGE &&
-                fish.pattern == TropicalFish.Pattern.CLAYFISH
-        ) {
-            return SpecialFishType.ORNATE_BUTTERFLYFISH
-        } else if (
-            fish.bodyColor == DyeColor.CYAN &&
-                fish.patternColor == DyeColor.PINK &&
-                fish.pattern == TropicalFish.Pattern.DASHER
-        ) {
-            return SpecialFishType.PARROTFISH
-        } else if (
-            fish.bodyColor == DyeColor.LIME &&
-                fish.patternColor == DyeColor.LIGHT_BLUE &&
-                fish.pattern == TropicalFish.Pattern.BRINELY
-        ) {
-            return SpecialFishType.QUEEN_ANGELFISH
-        } else if (
-            fish.bodyColor == DyeColor.RED &&
-                fish.patternColor == DyeColor.WHITE &&
-                fish.pattern == TropicalFish.Pattern.BETTY
-        ) {
-            return SpecialFishType.RED_CICHLID
-        } else if (
-            fish.bodyColor == DyeColor.GRAY &&
-                fish.patternColor == DyeColor.RED &&
-                fish.pattern == TropicalFish.Pattern.SNOOPER
-        ) {
-            return SpecialFishType.RED_LIPPED_BLENNY
-        } else if (
-            fish.bodyColor == DyeColor.RED &&
-                fish.patternColor == DyeColor.WHITE &&
-                fish.pattern == TropicalFish.Pattern.BLOCKFISH
-        ) {
-            return SpecialFishType.RED_SNAPPER
-        } else if (
-            fish.bodyColor == DyeColor.WHITE &&
-                fish.patternColor == DyeColor.YELLOW &&
-                fish.pattern == TropicalFish.Pattern.FLOPPER
-        ) {
-            return SpecialFishType.THREADFIN
-        } else if (
-            fish.bodyColor == DyeColor.RED &&
-                fish.patternColor == DyeColor.WHITE &&
-                fish.pattern == TropicalFish.Pattern.KOB
-        ) {
-            return SpecialFishType.TOMATO_CLOWNFISH
-        } else if (
-            fish.bodyColor == DyeColor.GRAY &&
-                fish.patternColor == DyeColor.WHITE &&
-                fish.pattern == TropicalFish.Pattern.SUNSTREAK
-        ) {
-            return SpecialFishType.TRIGGERFISH
-        } else if (
-            fish.bodyColor == DyeColor.CYAN &&
-                fish.patternColor == DyeColor.YELLOW &&
-                fish.pattern == TropicalFish.Pattern.DASHER
-        ) {
-            return SpecialFishType.YELLOWTAIL_PARROTFISH
-        } else if (
-            fish.bodyColor == DyeColor.YELLOW &&
-                fish.patternColor == DyeColor.YELLOW &&
-                fish.pattern == TropicalFish.Pattern.FLOPPER
-        ) {
-            return SpecialFishType.YELLOW_TANG
-        }
-        return null
-    }
+    data class FishKey(val bodyColor: DyeColor, val patternColor: DyeColor, val pattern: TropicalFish.Pattern)
+
+    val specialFishTypeMap =
+        mapOf<FishKey, SpecialFishType>(
+            FishKey(DyeColor.ORANGE, DyeColor.GRAY, TropicalFish.Pattern.STRIPEY) to SpecialFishType.ANEMONE,
+            FishKey(DyeColor.GRAY, DyeColor.GRAY, TropicalFish.Pattern.FLOPPER) to SpecialFishType.BLACK_TANG,
+            FishKey(DyeColor.GRAY, DyeColor.BLUE, TropicalFish.Pattern.FLOPPER) to SpecialFishType.BLUE_TANG,
+            FishKey(DyeColor.WHITE, DyeColor.GRAY, TropicalFish.Pattern.CLAYFISH) to SpecialFishType.BUTTERFLYFISH,
+            FishKey(DyeColor.BLUE, DyeColor.GRAY, TropicalFish.Pattern.SUNSTREAK) to SpecialFishType.CICHLID,
+            FishKey(DyeColor.ORANGE, DyeColor.WHITE, TropicalFish.Pattern.KOB) to SpecialFishType.CLOWNFISH,
+            FishKey(DyeColor.PINK, DyeColor.LIGHT_BLUE, TropicalFish.Pattern.SPOTTY) to
+                SpecialFishType.COTTON_CANDY_BETTA,
+            FishKey(DyeColor.PURPLE, DyeColor.YELLOW, TropicalFish.Pattern.BLOCKFISH) to SpecialFishType.DOTTYBACK,
+            FishKey(DyeColor.WHITE, DyeColor.RED, TropicalFish.Pattern.CLAYFISH) to SpecialFishType.EMPEROR_RED_SNAPPER,
+            FishKey(DyeColor.WHITE, DyeColor.YELLOW, TropicalFish.Pattern.SPOTTY) to SpecialFishType.GOATFISH,
+            FishKey(DyeColor.WHITE, DyeColor.GRAY, TropicalFish.Pattern.GLITTER) to SpecialFishType.MOORISH_IDOL,
+            FishKey(DyeColor.WHITE, DyeColor.ORANGE, TropicalFish.Pattern.CLAYFISH) to
+                SpecialFishType.ORNATE_BUTTERFLYFISH,
+            FishKey(DyeColor.CYAN, DyeColor.PINK, TropicalFish.Pattern.DASHER) to SpecialFishType.PARROTFISH,
+            FishKey(DyeColor.LIME, DyeColor.LIGHT_BLUE, TropicalFish.Pattern.BRINELY) to
+                SpecialFishType.QUEEN_ANGELFISH,
+            FishKey(DyeColor.RED, DyeColor.WHITE, TropicalFish.Pattern.BETTY) to SpecialFishType.RED_CICHLID,
+            FishKey(DyeColor.GRAY, DyeColor.RED, TropicalFish.Pattern.SNOOPER) to SpecialFishType.RED_LIPPED_BLENNY,
+            FishKey(DyeColor.RED, DyeColor.WHITE, TropicalFish.Pattern.BLOCKFISH) to SpecialFishType.RED_SNAPPER,
+            FishKey(DyeColor.WHITE, DyeColor.YELLOW, TropicalFish.Pattern.FLOPPER) to SpecialFishType.THREADFIN,
+            FishKey(DyeColor.RED, DyeColor.WHITE, TropicalFish.Pattern.KOB) to SpecialFishType.TOMATO_CLOWNFISH,
+            FishKey(DyeColor.GRAY, DyeColor.WHITE, TropicalFish.Pattern.SUNSTREAK) to SpecialFishType.TRIGGERFISH,
+            FishKey(DyeColor.CYAN, DyeColor.YELLOW, TropicalFish.Pattern.DASHER) to
+                SpecialFishType.YELLOWTAIL_PARROTFISH,
+            FishKey(DyeColor.YELLOW, DyeColor.YELLOW, TropicalFish.Pattern.FLOPPER) to SpecialFishType.YELLOW_TANG,
+        )
+
+    fun getSpecialFishType(fish: TropicalFish) = getSpecialFishType(fish.bodyColor, fish.patternColor, fish.pattern)
 
     fun getSpecialFishType(
         bodyColor: DyeColor,
         patternColor: DyeColor,
         pattern: TropicalFish.Pattern,
     ): SpecialFishType? {
-        if (bodyColor == DyeColor.ORANGE && patternColor == DyeColor.GRAY && pattern === TropicalFish.Pattern.STRIPEY) {
-            return SpecialFishType.ANEMONE
-        } else if (
-            bodyColor == DyeColor.GRAY && patternColor == DyeColor.GRAY && pattern == TropicalFish.Pattern.FLOPPER
-        ) {
-            return SpecialFishType.BLACK_TANG
-        } else if (
-            bodyColor == DyeColor.GRAY && patternColor == DyeColor.BLUE && pattern == TropicalFish.Pattern.FLOPPER
-        ) {
-            return SpecialFishType.BLUE_TANG
-        } else if (
-            bodyColor == DyeColor.WHITE && patternColor == DyeColor.GRAY && pattern == TropicalFish.Pattern.CLAYFISH
-        ) {
-            return SpecialFishType.BUTTERFLYFISH
-        } else if (
-            bodyColor == DyeColor.BLUE && patternColor == DyeColor.GRAY && pattern == TropicalFish.Pattern.SUNSTREAK
-        ) {
-            return SpecialFishType.CICHLID
-        } else if (
-            bodyColor == DyeColor.ORANGE && patternColor == DyeColor.WHITE && pattern == TropicalFish.Pattern.KOB
-        ) {
-            return SpecialFishType.CLOWNFISH
-        } else if (
-            bodyColor == DyeColor.PINK && patternColor == DyeColor.LIGHT_BLUE && pattern == TropicalFish.Pattern.SPOTTY
-        ) {
-            return SpecialFishType.COTTON_CANDY_BETTA
-        } else if (
-            bodyColor == DyeColor.PURPLE && patternColor == DyeColor.YELLOW && pattern == TropicalFish.Pattern.BLOCKFISH
-        ) {
-            return SpecialFishType.DOTTYBACK
-        } else if (
-            bodyColor == DyeColor.WHITE && patternColor == DyeColor.RED && pattern == TropicalFish.Pattern.CLAYFISH
-        ) {
-            return SpecialFishType.EMPEROR_RED_SNAPPER
-        } else if (
-            bodyColor == DyeColor.WHITE && patternColor == DyeColor.YELLOW && pattern == TropicalFish.Pattern.SPOTTY
-        ) {
-            return SpecialFishType.GOATFISH
-        } else if (
-            bodyColor == DyeColor.WHITE && patternColor == DyeColor.GRAY && pattern == TropicalFish.Pattern.GLITTER
-        ) {
-            return SpecialFishType.MOORISH_IDOL
-        } else if (
-            bodyColor == DyeColor.WHITE && patternColor == DyeColor.ORANGE && pattern == TropicalFish.Pattern.CLAYFISH
-        ) {
-            return SpecialFishType.ORNATE_BUTTERFLYFISH
-        } else if (
-            bodyColor == DyeColor.CYAN && patternColor == DyeColor.PINK && pattern == TropicalFish.Pattern.DASHER
-        ) {
-            return SpecialFishType.PARROTFISH
-        } else if (
-            bodyColor == DyeColor.LIME && patternColor == DyeColor.LIGHT_BLUE && pattern == TropicalFish.Pattern.BRINELY
-        ) {
-            return SpecialFishType.QUEEN_ANGELFISH
-        } else if (
-            bodyColor == DyeColor.RED && patternColor == DyeColor.WHITE && pattern == TropicalFish.Pattern.BETTY
-        ) {
-            return SpecialFishType.RED_CICHLID
-        } else if (
-            bodyColor == DyeColor.GRAY && patternColor == DyeColor.RED && pattern == TropicalFish.Pattern.SNOOPER
-        ) {
-            return SpecialFishType.RED_LIPPED_BLENNY
-        } else if (
-            bodyColor == DyeColor.RED && patternColor == DyeColor.WHITE && pattern == TropicalFish.Pattern.BLOCKFISH
-        ) {
-            return SpecialFishType.RED_SNAPPER
-        } else if (
-            bodyColor == DyeColor.WHITE && patternColor == DyeColor.YELLOW && pattern == TropicalFish.Pattern.FLOPPER
-        ) {
-            return SpecialFishType.THREADFIN
-        } else if (bodyColor == DyeColor.RED && patternColor == DyeColor.WHITE && pattern == TropicalFish.Pattern.KOB) {
-            return SpecialFishType.TOMATO_CLOWNFISH
-        } else if (
-            bodyColor == DyeColor.GRAY && patternColor == DyeColor.WHITE && pattern == TropicalFish.Pattern.SUNSTREAK
-        ) {
-            return SpecialFishType.TRIGGERFISH
-        } else if (
-            bodyColor == DyeColor.CYAN && patternColor == DyeColor.YELLOW && pattern == TropicalFish.Pattern.DASHER
-        ) {
-            return SpecialFishType.YELLOWTAIL_PARROTFISH
-        } else if (
-            bodyColor == DyeColor.YELLOW && patternColor == DyeColor.YELLOW && pattern == TropicalFish.Pattern.FLOPPER
-        ) {
-            return SpecialFishType.YELLOW_TANG
-        }
-        return null
+        return specialFishTypeMap[FishKey(bodyColor, patternColor, pattern)]
     }
 }
