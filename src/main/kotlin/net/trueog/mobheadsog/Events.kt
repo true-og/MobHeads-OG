@@ -1,4 +1,4 @@
-package net.trueog.mobHeadsOG
+package net.trueog.mobheadsog
 
 import java.util.*
 import net.kyori.adventure.text.Component
@@ -81,15 +81,9 @@ class Events : Listener {
         val profile = createProfile(nullUuid)
         profile.clearProperties()
         val textures = profile.textures
-        val skinUrl = Heads.getHeadUrl(event.entity)
-        if (skinUrl == null) {
-            return
-        }
+        val skinUrl = Heads.getHeadUrl(event.entity) ?: return
 
-        val stringRepresentation = Heads.toStringRepresentation(event.entity)
-        if (stringRepresentation == null) {
-            return
-        }
+        val stringRepresentation = Heads.toStringRepresentation(event.entity) ?: return
 
         headMeta.persistentDataContainer.set(customMobHeadKey, PersistentDataType.STRING, stringRepresentation)
         headMeta.displayName(
@@ -106,12 +100,7 @@ class Events : Listener {
     @EventHandler
     fun onBlockPlace(event: BlockPlaceEvent) {
         val customMobHeadData =
-            event.itemInHand.itemMeta.persistentDataContainer.get(customMobHeadKey, PersistentDataType.STRING)
-        if (customMobHeadData == null) {
-            return
-        }
-
-        customMobHeadData == "CREEPER"
+            event.itemInHand.itemMeta.persistentDataContainer.get(customMobHeadKey, PersistentDataType.STRING) ?: return
 
         event.block.setMetadata("customMobHead", FixedMetadataValue(MobHeadsOG.plugin, customMobHeadData))
     }
@@ -138,10 +127,7 @@ class Events : Listener {
 
         val profile = createProfile(nullUuid)
         val textures = profile.textures
-        val skinUrl = Heads.getHeadUrlWithStringRepresentation(customMobHeadData)
-        if (skinUrl == null) {
-            return
-        }
+        val skinUrl = Heads.getHeadUrlWithStringRepresentation(customMobHeadData) ?: return
 
         headMeta.persistentDataContainer.set(customMobHeadKey, PersistentDataType.STRING, customMobHeadData)
         headMeta.displayName(
@@ -170,9 +156,6 @@ class Events : Listener {
 
         val customMobHeadData = metadata.first().asString()
         val name = Heads.getNameForEntity(customMobHeadData)
-        if (name == null) {
-            return
-        }
 
         event.player.sendActionBar(MobHeadsOG.mm.deserialize("<yellow>$name Head"))
     }

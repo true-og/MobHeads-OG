@@ -1,4 +1,4 @@
 name: MobHeads-OG
 version: '${version}'
-main: net.trueog.mobHeadsOG.MobHeadsOG
+main: net.trueog.mobheadsog.MobHeadsOG
 api-version: '${apiVersion}'
