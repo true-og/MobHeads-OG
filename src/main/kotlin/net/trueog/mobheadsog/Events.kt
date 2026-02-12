@@ -31,6 +31,9 @@ class Events : Listener {
         if (event.entity.killer !is Player) {
             return
         }
+        if (event.entity is Player) {
+            return
+        }
 
         if (event.entity is Ageable && !(event.entity as Ageable).isAdult) {
             return
