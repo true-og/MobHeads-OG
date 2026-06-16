@@ -39,6 +39,10 @@ class Events : Listener {
             return
         }
 
+        if (event.entity.world.name !in MobHeadsOG.config.beheadWorlds) {
+            return
+        }
+
         val dropChance =
             if (event.entityType == EntityType.CREEPER && (event.entity as Creeper).isPowered) {
                 MobHeadsOG.config.chargedCreeperChance
@@ -54,16 +58,20 @@ class Events : Listener {
             return
         }
 
+        val killer = event.entity.killer as Player
+
         when (event.entityType) {
             EntityType.SKELETON -> {
                 val skull = ItemStack(Material.SKELETON_SKULL, 1)
                 event.drops.add(skull)
+                Broadcast.beheaded(killer, event.entity)
                 return
             }
 
             EntityType.ZOMBIE -> {
                 val head = ItemStack(Material.ZOMBIE_HEAD, 1)
                 event.drops.add(head)
+                Broadcast.beheaded(killer, event.entity)
                 return
             }
 
@@ -71,6 +79,7 @@ class Events : Listener {
                 if (!(event.entity as Creeper).isPowered) {
                     val head = ItemStack(Material.CREEPER_HEAD, 1)
                     event.drops.add(head)
+                    Broadcast.beheaded(killer, event.entity)
                     return
                 }
             }
@@ -98,6 +107,7 @@ class Events : Listener {
         headMeta.playerProfile = profile
         head.itemMeta = headMeta
         event.drops.add(head)
+        Broadcast.beheaded(killer, event.entity)
     }
 
     @EventHandler

@@ -9,6 +9,14 @@ class Config {
 
     var chargedCreeperChance: Double = 0.0
 
+    val beheadWorlds: MutableList<String> = mutableListOf()
+
+    var broadcastEnabled: Boolean = false
+
+    val broadcastWorlds: MutableList<String> = mutableListOf()
+
+    var broadcastMessage: String = ""
+
     /** @return True if successful */
     fun load(): Boolean {
         val file = File(MobHeadsOG.plugin.dataFolder, "config.yml")
@@ -16,6 +24,28 @@ class Config {
             MobHeadsOG.plugin.saveDefaultConfig()
         }
         val config = YamlConfiguration.loadConfiguration(file)
+
+        val beheadSection = config.getConfigurationSection("behead")
+        if (beheadSection == null) {
+            MobHeadsOG.plugin.logger.severe("Couldn't find a valid behead section in the config")
+            return false
+        }
+        beheadWorlds.clear()
+        beheadWorlds.addAll(beheadSection.getStringList("worlds"))
+
+        val broadcastSection = config.getConfigurationSection("broadcast")
+        if (broadcastSection == null) {
+            MobHeadsOG.plugin.logger.severe("Couldn't find a valid broadcast section in the config")
+            return false
+        }
+        broadcastEnabled = broadcastSection.getBoolean("enabled")
+        broadcastWorlds.clear()
+        broadcastWorlds.addAll(broadcastSection.getStringList("worlds"))
+        broadcastMessage = broadcastSection.getString("message") ?: ""
+        if (broadcastEnabled && broadcastMessage.isEmpty()) {
+            MobHeadsOG.plugin.logger.severe("Couldn't find a valid broadcast message in the config")
+            return false
+        }
 
         val dropChancesSection = config.getConfigurationSection("dropChances")
         if (dropChancesSection == null) {

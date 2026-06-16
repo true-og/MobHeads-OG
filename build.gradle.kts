@@ -50,11 +50,13 @@ repositories {
     mavenCentral() // Import the Maven Central Maven Repository.
     gradlePluginPortal() // Import the Gradle Plugin Portal Maven Repository.
     maven { url = uri("https://repo.purpurmc.org/snapshots") } // Import the PurpurMC Maven Repository.
+    maven { url = uri("https://repo.lucko.me/") } // Import the LuckPerms Maven Repository.
 }
 
 /* ---------------------- Java project deps ---------------------------- */
 dependencies {
     compileOnly("org.purpurmc.purpur:purpur-api:1.19.4-R0.1-SNAPSHOT") // Declare Purpur API version to be packaged.
+    compileOnly("net.luckperms:api:5.5") // Declare LuckPerms API for prefix/name color lookups.
     implementation("org.jetbrains.kotlin:kotlin-stdlib") // Import Kotlin standard library.
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2") // Import Kotlin async library.
 }

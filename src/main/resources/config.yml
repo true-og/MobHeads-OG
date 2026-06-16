@@ -1,3 +1,20 @@
+behead:
+  # Heads only drop in these worlds.
+  worlds:
+    - world
+    - world_nether
+    - world_the_end
+
+broadcast:
+  enabled: true
+  # Only players in these worlds see the broadcast.
+  worlds:
+    - world
+    - world_nether
+    - world_the_end
+  # Placeholders: <prefix>, <name>, <mob>.
+  message: "<dark_red>☠</dark_red> <prefix><name> <gray>decapitated a</gray> <mob><gray>!</gray>"
+
 dropChances:
   allay: 0.025
   axolotl: 0.025
